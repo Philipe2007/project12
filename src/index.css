@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  font-family: "Segoe UI", Inter, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  background: #00a1de;
+  color: #0f172a;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #00a1de;
+  color: #0f172a;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+p,
+h1,
+h2,
+h3,
+ul {
+  margin-top: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+#root {
+  min-height: 100vh;
+}
