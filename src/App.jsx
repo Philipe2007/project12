@@ -1,9 +1,22 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React, { useState, useEffect } from "react";
+import emailjs from "@emailjs/browser";
+import { AnimatePresence, motion } from "framer-motion";
 import heroImage from "./images/heroImage.jpeg";
 import logoImage from "./images/Logo.png";
 import resourceImage from "./images/image.jpeg";
 import cornerstoneBook from "./images/cornerstone-youth-guide.pdf";
+import bandImage from "./images/band.jfif";
+import bandeImage from "./images/bande.jfif";
+import cameraImage from "./images/cameraa.jfif";
+import cateringImage from "./images/catering.jfif";
+import danceImage from "./images/dance.jfif";
+import decorationImage from "./images/decoration.jfif";
+import liveImage from "./images/live.jfif";
+import makeupImage from "./images/makeup.jfif";
+import photoImage from "./images/photo.jfif";
+import soundImage from "./images/sonorisation.jfif";
+import websiteImage from "./images/website.jfif";
+import gusImage from "./images/gus.jfif";
 import {
   ArrowRight,
   BookOpen,
@@ -105,11 +118,187 @@ const newsItems = [
   { title: "School outreach and talent development programmes", date: "July 2026" },
 ];
 
+const galleryImages = [
+  { src: bandImage, title: "Live music set", category: "Stage performance" },
+  { src: bandeImage, title: "Band rehearsal", category: "Creative energy" },
+  { src: cameraImage, title: "Behind the lens", category: "Photo coverage" },
+  { src: cateringImage, title: "Catering experience", category: "Hospitality" },
+  { src: danceImage, title: "Dance showcase", category: "Cultural flair" },
+  { src: decorationImage, title: "Luxury décor", category: "Event styling" },
+  { src: liveImage, title: "Live stream stage", category: "Broadcast" },
+  { src: makeupImage, title: "Beauty styling", category: "Preparation" },
+  { src: photoImage, title: "Portrait moments", category: "Photography" },
+  { src: soundImage, title: "Sound setup", category: "Audio engineering" },
+  { src: websiteImage, title: "Event branding", category: "Brand presence" },
+  { src: gusImage, title: "Crowd energy", category: "Celebration" },
+];
+
+const learnMoreContent = {
+  overview: {
+    title: "About The Cornerstone",
+    text:
+      "The Cornerstone is a national, youth-focused organisation that promotes empowerment, protection, participation, and community wellbeing for adolescents and young people in Rwanda.",
+    points: [
+      "Established in 2009 and rooted in community action.",
+      "Works through education, mentoring, prevention, culture, sport and skills development.",
+      "Helps young people become confident, resilient and responsible citizens.",
+    ],
+  },
+  programmes: {
+    title: "Our programmes",
+    text:
+      "The organisation supports young people through structured programmes designed for personal growth, leadership, and sustainable opportunity.",
+    points: [
+      "Momentum: youth empowerment through karate, culture and community engagement.",
+      "Train with Elites: school-based development and wellbeing support.",
+      "Skills & Enterprise: vocational and entrepreneurship pathways.",
+    ],
+  },
+};
+
+const EMAILJS_SERVICE_ID = "service_123";
+const EMAILJS_TEMPLATE_ID = "template_wdvj3nd";
+const EMAILJS_PUBLIC_KEY = "uUCAKnDwkmiFGcxhD";
+
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [formData, setFormData] = useState({
+    full_name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [isSending, setIsSending] = useState(false);
+  const [toast, setToast] = useState(null);
+  const [modalInfo, setModalInfo] = useState(null);
+
+  const nextSlide = () => setActiveSlide((current) => (current + 1) % galleryImages.length);
+  const prevSlide = () => setActiveSlide((current) => (current - 1 + galleryImages.length) % galleryImages.length);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setIsSending(true);
+    setToast(null);
+
+    try {
+      if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+        throw new Error("EmailJS configuration is missing. Please add your service ID, template ID, and public key.");
+      }
+
+      const templateParams = {
+        full_name: formData.full_name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_email: "rwandacornerstone@gmail.com",
+      };
+
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, { publicKey: EMAILJS_PUBLIC_KEY });
+
+      setFormData({ full_name: "", email: "", subject: "", message: "" });
+      setToast({ type: "success", text: "Your message has been sent successfully." });
+    } catch (error) {
+      console.error("EmailJS send error:", error);
+      setToast({
+        type: "error",
+        text: "EmailJS did not send. Please check the EmailJS credentials or your template variables. If it still fails, contact rwandacornerstone@gmail.com directly.",
+      });
+    } finally {
+      setIsSending(false);
+    }
+  };
+
+  useEffect(() => {
+    if (!toast) return;
+
+    const timeoutId = setTimeout(() => {
+      setToast(null);
+    }, 4000);
+
+    return () => clearTimeout(timeoutId);
+  }, [toast]);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setActiveSlide((current) => (current + 1) % galleryImages.length);
+    }, 5000);
+
+    return () => clearInterval(intervalId);
+  }, []);
 
   return (
     <div className="min-h-screen bg-[#00a1de] text-slate-800">
+      <AnimatePresence>
+        {modalInfo && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[80] flex items-center justify-center bg-slate-950/70 p-4"
+            onClick={() => setModalInfo(null)}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 24, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 16, scale: 0.96 }}
+              transition={{ duration: 0.2 }}
+              onClick={(event) => event.stopPropagation()}
+              className="w-full max-w-2xl rounded-[2rem] border border-[#dfeaf9] bg-white p-6 shadow-[0_35px_100px_rgba(15,23,42,0.25)]"
+            >
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#0a3d8f]">Learn more</p>
+                  <h3 className="mt-3 text-2xl font-black text-[#0a3d8f]">{modalInfo.title}</h3>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setModalInfo(null)}
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-xl text-slate-700"
+                  aria-label="Close details"
+                >
+                  ×
+                </button>
+              </div>
+
+              <p className="mt-5 text-base leading-8 text-slate-600">{modalInfo.text}</p>
+
+              <ul className="mt-5 space-y-3 text-slate-700">
+                {modalInfo.points.map((point) => (
+                  <li key={point} className="flex items-start gap-3">
+                    <span className="mt-1.5 inline-block h-2.5 w-2.5 rounded-full bg-[#00a1de]" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {toast && (
+        <div className="pointer-events-none fixed right-4 top-24 z-[60] w-[min(92vw,360px)]">
+          <div
+            className={`rounded-2xl border px-4 py-3 shadow-2xl backdrop-blur-md ${
+              toast.type === "success"
+                ? "border-emerald-200 bg-emerald-50 text-emerald-700"
+                : "border-red-200 bg-red-50 text-red-700"
+            }`}
+          >
+            <div className="flex items-start gap-3">
+              <div className={`mt-0.5 flex h-7 w-7 items-center justify-center rounded-full text-sm font-bold ${toast.type === "success" ? "bg-emerald-500 text-white" : "bg-red-500 text-white"}`}>
+                {toast.type === "success" ? "✓" : "!"}
+              </div>
+              <p className="text-sm font-medium leading-6">{toast.text}</p>
+            </div>
+          </div>
+        </div>
+      )}
       <header className="sticky top-0 z-50 border-b border-white/20 bg-[#00a1de]/90 backdrop-blur-lg">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-20 items-center justify-between">
@@ -209,19 +398,20 @@ function App() {
               className="mt-10 flex flex-wrap gap-4"
             >
               <a
-                href="#programmes"
+                href="{cornerstoneBook}"
+                download
                 className="inline-flex items-center gap-2 rounded-full bg-[#fcd116] px-7 py-3.5 font-semibold text-[#173d38] shadow-lg shadow-yellow-900/20 transition hover:bg-[#e7c00f]"
               >
                 Explore Programmes
                 <ArrowRight size={18} />
               </a>
-              <a
-                href="{cornerstoneBook}"
-                download
+              <button
+                type="button"
+                onClick={() => setModalInfo(learnMoreContent.overview)}
                 className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 font-semibold text-white transition hover:border-emerald-300/50 hover:bg-white/10"
               >
                 Learn More
-              </a>
+              </button>
             </motion.div>
 
             <div className="mt-10 flex flex-wrap items-center gap-4 text-sm text-slate-200">
@@ -424,6 +614,86 @@ function App() {
           </div>
         </section>
 
+        <section id="gallery" className="bg-[#f3f7fb] py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+              <div className="max-w-2xl">
+                <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#0a3d8f]">Gallery</p>
+                <h2 className="mt-4 text-3xl font-black text-[#0a3d8f] sm:text-4xl">Professional moments from our events and community experiences.</h2>
+              </div>
+              <p className="max-w-xl text-base leading-7 text-slate-600">
+                From live music and event production to décor, stage design and cultural experiences, our gallery reflects the quality, energy and creativity behind every occasion.
+              </p>
+            </div>
+
+            <div className="overflow-hidden rounded-[2rem] border border-[#dfeaf9] bg-white p-3 shadow-[0_30px_90px_rgba(10,61,143,0.08)] sm:p-5">
+              <div className="relative overflow-hidden rounded-[1.5rem] bg-slate-100">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={galleryImages[activeSlide].title}
+                    initial={{ opacity: 0, x: 80 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -80 }}
+                    transition={{ duration: 0.45, ease: "easeInOut" }}
+                    className="relative"
+                  >
+                    <img
+                      src={galleryImages[activeSlide].src}
+                      alt={galleryImages[activeSlide].title}
+                      className="h-[420px] w-full object-cover sm:h-[560px]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/15 to-transparent" />
+                    <div className="absolute inset-x-0 bottom-0 p-6 text-white sm:p-8">
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-slate-200">
+                        {galleryImages[activeSlide].category}
+                      </p>
+                      <h3 className="mt-3 text-2xl font-black sm:text-4xl">{galleryImages[activeSlide].title}</h3>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+
+                <button
+                  onClick={prevSlide}
+                  className="absolute left-4 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-black/25 text-xl text-white backdrop-blur-sm transition hover:bg-black/45"
+                  aria-label="Previous slide"
+                >
+                  ‹
+                </button>
+                <button
+                  onClick={nextSlide}
+                  className="absolute right-4 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-black/25 text-xl text-white backdrop-blur-sm transition hover:bg-black/45"
+                  aria-label="Next slide"
+                >
+                  ›
+                </button>
+              </div>
+
+              <div className="mt-5 grid gap-3 sm:grid-cols-4 xl:grid-cols-6">
+                {galleryImages.map((image, index) => (
+                  <button
+                    key={image.title}
+                    type="button"
+                    onClick={() => setActiveSlide(index)}
+                    className={`overflow-hidden rounded-2xl border transition ${
+                      activeSlide === index
+                        ? "border-[#0a3d8f] shadow-lg shadow-blue-200/50"
+                        : "border-slate-200 hover:border-slate-300"
+                    }`}
+                  >
+                    <img
+                      src={image.src}
+                      alt={image.title}
+                      className={`h-20 w-full object-cover transition ${
+                        activeSlide === index ? "scale-105 opacity-100" : "opacity-70"
+                      }`}
+                    />
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="bg-[#f1f5f1] py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-10 flex items-end justify-between gap-4">
@@ -454,9 +724,13 @@ function App() {
               <div key={item.title} className="rounded-[1.75rem] border border-[#dfe6df] bg-white p-6 shadow-[0_20px_60px_rgba(16,37,33,0.04)]">
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#0a3d8f]">{item.date}</p>
                 <h3 className="mt-4 text-xl font-bold leading-relaxed text-[#0a3d8f]">{item.title}</h3>
-                <a href="#contact" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#0a3d8f]">
+                <button
+                  type="button"
+                  onClick={() => setModalInfo(learnMoreContent.programmes)}
+                  className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#0a3d8f]"
+                >
                   Learn more <ArrowRight size={16} />
-                </a>
+                </button>
               </div>
             ))}
           </div>
@@ -526,30 +800,66 @@ function App() {
               </div>
             </div>
 
-            <form className="rounded-[2rem] border border-[#dfe6df] bg-white p-7 shadow-[0_25px_80px_rgba(20,43,36,0.08)]">
+            <form onSubmit={handleSubmit} className="rounded-[2rem] border border-[#dfe6df] bg-white p-7 shadow-[0_25px_80px_rgba(20,43,36,0.08)]">
               <div className="grid gap-5 sm:grid-cols-2">
                 <div>
-                  <label className="mb-2 block text-sm font-semibold text-slate-700">Full Name</label>
-                  <input type="text" placeholder="Your name" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-[#00a1de]" />
+                  <label htmlFor="full_name" className="mb-2 block text-sm font-semibold text-slate-700">Full Name</label>
+                  <input
+                    id="full_name"
+                    name="full_name"
+                    type="text"
+                    value={formData.full_name}
+                    onChange={handleChange}
+                    placeholder="Your name"
+                    required
+                    className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-[#00a1de]"
+                  />
                 </div>
                 <div>
-                  <label className="mb-2 block text-sm font-semibold text-slate-700">Email</label>
-                  <input type="email" placeholder="you@example.com" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-[#00a1de]" />
+                  <label htmlFor="email" className="mb-2 block text-sm font-semibold text-slate-700">Email</label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="you@example.com"
+                    required
+                    className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-[#00a1de]"
+                  />
                 </div>
               </div>
 
               <div className="mt-5">
-                <label className="mb-2 block text-sm font-semibold text-slate-700">Subject</label>
-                <input type="text" placeholder="Partnership, volunteering, support..." className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-[#00a1de]" />
+                <label htmlFor="subject" className="mb-2 block text-sm font-semibold text-slate-700">Subject</label>
+                <input
+                  id="subject"
+                  name="subject"
+                  type="text"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  placeholder="Partnership, volunteering, support..."
+                  required
+                  className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-[#00a1de]"
+                />
               </div>
 
               <div className="mt-5">
-                <label className="mb-2 block text-sm font-semibold text-slate-700">Message</label>
-                <textarea rows="5" placeholder="Tell us how you would like to support or collaborate..." className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-[#00a1de]" />
+                <label htmlFor="message" className="mb-2 block text-sm font-semibold text-slate-700">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Tell us how you would like to support or collaborate..."
+                  required
+                  className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-[#00a1de]"
+                />
               </div>
 
-              <button type="button" className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#fcd116] px-6 py-3 font-semibold text-[#0a3d8f] transition hover:bg-[#e7c00f]">
-                Send Message
+              <button type="submit" disabled={isSending} className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#fcd116] px-6 py-3 font-semibold text-[#0a3d8f] transition hover:bg-[#e7c00f] disabled:cursor-not-allowed disabled:opacity-70">
+                {isSending ? "Sending..." : "Send Message"}
                 <ArrowRight size={16} />
               </button>
             </form>
