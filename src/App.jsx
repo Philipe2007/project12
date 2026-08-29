@@ -5,18 +5,17 @@ import heroImage from "./images/heroImage.jpeg";
 import logoImage from "./images/Logo.png";
 import resourceImage from "./images/image.jpeg";
 import cornerstoneBook from "./images/cornerstone-youth-guide.pdf";
-import bandImage from "./images/band.jfif";
-import bandeImage from "./images/bande.jfif";
-import cameraImage from "./images/cameraa.jfif";
-import cateringImage from "./images/catering.jfif";
-import danceImage from "./images/dance.jfif";
-import decorationImage from "./images/decoration.jfif";
-import liveImage from "./images/live.jfif";
-import makeupImage from "./images/makeup.jfif";
-import photoImage from "./images/photo.jfif";
-import soundImage from "./images/sonorisation.jfif";
-import websiteImage from "./images/website.jfif";
-import gusImage from "./images/gus.jfif";
+import bandImage from "./images/karate4.jpeg";
+import bandeImage from "./images/karate2.jpeg";
+import cameraImage from "./images/karate3.jpeg";
+import cateringImage from "./images/karate1.jpeg";
+import danceImage from "./images/karate7.jpeg";
+import decorationImage from "./images/karate6.jpeg";
+import liveImage from "./images/karate5.jpeg";
+import makeupImage from "./images/karate4.jpeg";
+import photoImage from "./images/karate3.jpeg";
+import soundImage from "./images/karate2.jpeg";
+import websiteImage from "./images/karate1.jpeg";
 import {
   ArrowRight,
   BookOpen,
@@ -119,18 +118,17 @@ const newsItems = [
 ];
 
 const galleryImages = [
-  { src: bandImage, title: "Live music set", category: "Stage performance" },
-  { src: bandeImage, title: "Band rehearsal", category: "Creative energy" },
-  { src: cameraImage, title: "Behind the lens", category: "Photo coverage" },
-  { src: cateringImage, title: "Catering experience", category: "Hospitality" },
-  { src: danceImage, title: "Dance showcase", category: "Cultural flair" },
-  { src: decorationImage, title: "Luxury décor", category: "Event styling" },
-  { src: liveImage, title: "Live stream stage", category: "Broadcast" },
-  { src: makeupImage, title: "Beauty styling", category: "Preparation" },
-  { src: photoImage, title: "Portrait moments", category: "Photography" },
-  { src: soundImage, title: "Sound setup", category: "Audio engineering" },
-  { src: websiteImage, title: "Event branding", category: "Brand presence" },
-  { src: gusImage, title: "Crowd energy", category: "Celebration" },
+  { src: bandImage, title: "Karate discipline training", category: "Focus & technique" },
+  { src: bandeImage, title: "Team warm-up session", category: "Unity & readiness" },
+  { src: cameraImage, title: "Youth moments in action", category: "Training highlights" },
+  { src: cateringImage, title: "Rising with dignity", category: "Care & togetherness" },
+  { src: danceImage, title: "Cultural celebration", category: "Heritage & rhythm" },
+  { src: decorationImage, title: "Dojo spirit and pride", category: "Identity & belonging" },
+  { src: liveImage, title: "Live karate showcase", category: "Performance & confidence" },
+  { src: makeupImage, title: "Confidence and presentation", category: "Youth empowerment" },
+  { src: photoImage, title: "Portraits of resilience", category: "Growth & determination" },
+  { src: soundImage, title: "Training energy & motivation", category: "Discipline & focus" },
+  { src: websiteImage, title: "Community outreach campaign", category: "Awareness & engagement" },
 ];
 
 const learnMoreContent = {
@@ -781,11 +779,11 @@ function App() {
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone className="text-[#0a3d8f]" size={20} />
-                  <span>Phone number : </span>
+                  <span>Phone number : +250 788 585 110</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Mail className="text-[#0a3d8f]" size={20} />
-                  <span>Email address: </span>
+                  <span>Email address: <a href="mailto:rwandacornestone@gmail.com" className="text-[#0a3d8f] hover:underline">rwandacornestone@gmail.com</a></span>
                 </div>
               </div>
 
