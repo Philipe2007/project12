@@ -172,7 +172,7 @@ export default function App() {
       className="inline-flex items-center gap-2 border border-orange-500/30 bg-orange-500/10 px-4 py-2 rounded-full text-orange-400 text-xs uppercase tracking-[0.2em]"
     >
       <Sparkles size={14} />
-      Rwanda • Est. 2014
+      Bonita Springs • Est. 2014
     </motion.div>
 
     <motion.h1

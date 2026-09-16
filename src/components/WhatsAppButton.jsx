@@ -6,7 +6,7 @@ const WhatsAppButton = () => {
       'Hello Deliphine Beauty Studio, I would like to book an appointment or ask about a service.',
     );
 
-    window.open(`https://wa.me/250781216840?text=${message}`, '_blank', 'noopener,noreferrer');
+    window.open(`https://wa.me/12393991228?text=${message}`, '_blank', 'noopener,noreferrer');
   };
 
   return (

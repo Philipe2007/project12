@@ -12,7 +12,7 @@ const ContactPage = () => {
     const text = encodeURIComponent(
       `Hello Deliphine Beauty Studio,\n\nI would like to contact the salon.\nName: ${name}\nPhone: ${phone}\nMessage: ${message}`,
     );
-    window.open(`https://wa.me/250781216840?text=${text}`, '_blank', 'noopener,noreferrer');
+    window.open(`https://wa.me/12393991228?text=${text}`, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -31,7 +31,7 @@ const ContactPage = () => {
             </div>
             <div className="flex items-start gap-3">
               <Phone className="mt-1 text-[#7a4d46]" size={18} />
-              <a href="tel:+250781216840" className="hover:text-[#7a4d46]">{businessInfo.phone}</a>
+              <a href="tel:+12393991228" className="hover:text-[#7a4d46]">{businessInfo.phone}</a>
             </div>
             <div className="flex items-start gap-3">
               <Clock3 className="mt-1 text-[#7a4d46]" size={18} />
@@ -46,7 +46,7 @@ const ContactPage = () => {
           <div className="mt-8 overflow-hidden rounded-[1.5rem] border border-[#efd9d2] bg-[#f9efe9] p-2">
             <iframe
               title="Salon location map"
-              src="https://www.google.com/maps?q=Kigali%20Rwanda&z=12&output=embed"
+              src="https://www.google.com/maps?q=J.+Lee+Salon+Suites,+24880+S+Tamiami+Trl+%231,+Bonita+Springs,+FL+34134&output=embed"
               className="h-[280px] w-full border-0"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
@@ -62,7 +62,7 @@ const ContactPage = () => {
             </div>
             <div>
               <label htmlFor="phone" className="mb-2 block text-sm font-semibold text-[#201918]">Phone</label>
-              <input id="phone" name="phone" type="tel" required className="w-full rounded-xl border border-[#ead9d4] bg-white px-4 py-3 outline-none focus:border-[#c9988e]" placeholder="+250..." />
+              <input id="phone" name="phone" type="tel" required className="w-full rounded-xl border border-[#ead9d4] bg-white px-4 py-3 outline-none focus:border-[#c9988e]" placeholder="+1..." />
             </div>
           </div>
 

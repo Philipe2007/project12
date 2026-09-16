@@ -17,12 +17,12 @@ const salonImages = [image01, image02, image03, image04, image05, image06, image
 export const businessInfo = {
   name: 'Deliphine Beauty Studio',
   shortName: 'Deliphine',
-  phone: '+250 781 216 840',
-  whatsapp: '250781216840',
-  address: 'Makuza Peace Plaza (Kwamakuza), 3rd Floor – Shop 46, KN 48 St, Kigali',
+  phone: '+1 239-399-1228',
+  whatsapp: '12393991228',
+  address: 'J. Lee Salon Suites, 24880 S Tamiami Trl #1, Bonita Springs, FL 34134, United States',
   openingHours: {
-    weekdays: 'Monday–Saturday: 8:00–20:00',
-    sunday: 'Sunday: 10:00–18:00',
+    weekdays: 'Open daily · Closes at 5:00 PM',
+    sunday: 'Open daily · Closes at 5:00 PM',
   },
 };
 
@@ -38,10 +38,10 @@ export const navItems = [
 ];
 
 export const heroStats = [
-  { value: '320+', label: 'women in Kigali' },
-  { value: '7 days', label: 'open weekly' },
-  { value: 'MoMo', label: 'accepted' },
-  { value: 'Walk-ins', label: 'welcome' },
+  { value: '5-star', label: 'beauty care' },
+  { value: 'Daily', label: 'appointments' },
+  { value: 'Local', label: 'Bonita Springs studio' },
+  { value: 'Walk-ins', label: 'welcome when available' },
 ];
 
 const callForPricing = 'Call for pricing';

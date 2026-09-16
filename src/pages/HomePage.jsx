@@ -17,7 +17,7 @@ const HomePage = () => (
         <div className="max-w-xl">
           <div className="inline-flex items-center gap-2 rounded-full border border-[#d8b7b0] bg-white/80 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.26em] text-[#6f453f]">
             <Sparkles size={12} />
-            Kigali’s expert women’s salon
+            Bonita Springs beauty studio
           </div>
 
           <h1 className="mt-6 text-4xl font-black leading-[1.05] tracking-[-0.05em] text-[#201918] sm:text-5xl lg:text-7xl">
@@ -199,10 +199,10 @@ const HomePage = () => (
           </div>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="https://wa.me/250781216840?text=Hello%20Deliphine%20Beauty%20Studio%2C%20I%20want%20to%20book%20an%20appointment." target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[#f0d8d1] px-5 py-3 font-semibold text-[#2b1b1d] hover:bg-[#e6c6c2]">
+            <a href="https://wa.me/12393991228?text=Hello%20Deliphine%20Beauty%20Studio%2C%20I%20want%20to%20book%20an%20appointment." target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[#f0d8d1] px-5 py-3 font-semibold text-[#2b1b1d] hover:bg-[#e6c6c2]">
               <MessageCircle size={18} /> WhatsApp
             </a>
-            <a href="tel:+250781216840" className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-3 font-semibold text-white hover:bg-white/10">
+            <a href="tel:+12393991228" className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-3 font-semibold text-white hover:bg-white/10">
               Call now
             </a>
           </div>

@@ -9,7 +9,7 @@ const Footer = () => (
         <div>
           <p className="text-lg font-black tracking-[0.2em] text-[#2b1b1d]">DELIPHINE</p>
           <p className="mt-4 max-w-sm text-base leading-7 text-[#564744]">
-            Women-only hair salon in the heart of Kigali — braids, weaves, colour and bridal styling.
+            A welcoming beauty studio in Bonita Springs offering cuts, color, styling, treatments and bridal beauty.
           </p>
         </div>
 
@@ -29,7 +29,7 @@ const Footer = () => (
           <div className="mt-4 space-y-4 text-sm text-[#4e3f3d]">
             <div className="flex items-start gap-3">
               <Phone size={16} className="mt-0.5 text-[#7a4d46]" />
-              <a href="tel:+250781216840" className="hover:text-[#7a4d46]">+250 781 216 840</a>
+              <a href="tel:+12393991228" className="hover:text-[#7a4d46]">+1 239-399-1228</a>
             </div>
             <div className="flex items-start gap-3">
               <MapPin size={16} className="mt-0.5 text-[#7a4d46]" />
@@ -38,9 +38,9 @@ const Footer = () => (
             <div className="flex items-start gap-3">
               <Clock3 size={16} className="mt-0.5 text-[#7a4d46]" />
               <span>
-                Mon–Sat 8:00–20:00
+                Open daily
                 <br />
-                Sun 10:00–18:00
+                Closes at 5:00 PM
               </span>
             </div>
           </div>
@@ -51,7 +51,7 @@ const Footer = () => (
           <div className="mt-4 flex flex-wrap gap-3">
             <a href="https://instagram.com" target="_blank" rel="noreferrer" className="rounded-full border border-[#ebd6d1] bg-white px-4 py-2 text-sm font-semibold text-[#2b1b1d] transition hover:border-[#caa29d] hover:text-[#7a4d46]">Instagram</a>
             <a href="https://facebook.com" target="_blank" rel="noreferrer" className="rounded-full border border-[#ebd6d1] bg-white px-4 py-2 text-sm font-semibold text-[#2b1b1d] transition hover:border-[#caa29d] hover:text-[#7a4d46]">Facebook</a>
-            <a href="https://wa.me/250781216840" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-[#ebd6d1] bg-white px-4 py-2 text-sm font-semibold text-[#2b1b1d] transition hover:border-[#caa29d] hover:text-[#7a4d46]">
+            <a href="https://wa.me/12393991228" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-[#ebd6d1] bg-white px-4 py-2 text-sm font-semibold text-[#2b1b1d] transition hover:border-[#caa29d] hover:text-[#7a4d46]">
               <MessageCircle size={15} />
               WhatsApp
             </a>
@@ -60,7 +60,7 @@ const Footer = () => (
       </div>
 
       <div className="mt-10 border-t border-[#ebd6d1] pt-6 text-center text-sm text-[#5f4b48]">
-        🇷🇼 Proudly Kigali · Proudly Rwandan
+        Proudly serving Bonita Springs, Florida
       </div>
     </div>
   </footer>

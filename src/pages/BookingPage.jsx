@@ -185,8 +185,8 @@ const BookingPage = () => {
                   <div className="rounded-[1.6rem] border border-[#efd9d2] bg-[#f9efe9] p-5">
                     <h3 className="text-xl font-black text-[#201918]">Payment options</h3>
                     <div className="mt-4 space-y-3 text-sm text-[#4b3c3a]">
-                      <div className="flex items-center gap-2"><Phone size={16} className="text-[#7a4d46]" /> MTN MoMo</div>
-                      <div className="flex items-center gap-2"><Phone size={16} className="text-[#7a4d46]" /> Airtel Money</div>
+                      <div className="flex items-center gap-2"><Phone size={16} className="text-[#7a4d46]" /> Card payment</div>
+                      <div className="flex items-center gap-2"><Phone size={16} className="text-[#7a4d46]" /> Contact the studio</div>
                       <div className="flex items-center gap-2"><Clock3 size={16} className="text-[#7a4d46]" /> Cash at salon</div>
                     </div>
                     <p className="mt-5 text-sm leading-7 text-[#5d4540]">Applied toward your service total at the salon.</p>

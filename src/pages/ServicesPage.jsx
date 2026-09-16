@@ -26,7 +26,7 @@ const ServicesPage = () => {
                   <Clock3 size={16} /> {service.duration}
                 </span>
                 <span className="inline-flex items-center gap-2 rounded-full border border-[#ecd9d4] bg-white px-3 py-2 font-semibold text-[#201918]">
-                  <MapPin size={16} /> Kigali, Rwanda
+                  <MapPin size={16} /> mmmmmmmmm
                 </span>
               </div>
 
@@ -48,7 +48,7 @@ const ServicesPage = () => {
                   Book this service
                   <ArrowRight size={18} />
                 </a>
-                <a href="https://wa.me/250781216840?text=Hello%20Deliphine%20Beauty%20Studio%2C%20I%20want%20to%20book%20the%20service%3A%20${encodeURIComponent(service.name)}" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-[#d8b7b0] bg-white px-6 py-3 font-semibold text-[#2b1b1d] hover:border-[#c99790]">
+                <a href={`https://wa.me/12393991228?text=${encodeURIComponent(`Hello Deliphine Beauty Studio, I want to book the service: ${service.name}`)}`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-[#d8b7b0] bg-white px-6 py-3 font-semibold text-[#2b1b1d] hover:border-[#c99790]">
                   <MessageCircle size={18} /> WhatsApp
                 </a>
               </div>
@@ -56,7 +56,7 @@ const ServicesPage = () => {
               <ul className="mt-8 space-y-3 text-[#4b3c3a]">
                 <li className="flex items-center gap-3"><CheckCircle2 size={18} className="text-[#7a4d46]" /> Walk-ins are welcome when space allows</li>
                 <li className="flex items-center gap-3"><CheckCircle2 size={18} className="text-[#7a4d46]" /> Booking online guarantees your slot</li>
-                <li className="flex items-center gap-3"><CheckCircle2 size={18} className="text-[#7a4d46]" /> MoMo, Airtel Money and cash accepted</li>
+                <li className="flex items-center gap-3"><CheckCircle2 size={18} className="text-[#7a4d46]" /> Call us to confirm availability and payment options</li>
               </ul>
             </div>
           </div>

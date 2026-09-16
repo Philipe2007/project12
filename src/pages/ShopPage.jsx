@@ -111,7 +111,7 @@ const ShopPage = () => {
             </div>
             <div>
               <label className="mb-2 block text-sm font-semibold text-[#201918]">Delivery / location</label>
-              <input type="text" className="w-full rounded-xl border border-[#ead9d4] bg-white px-4 py-3 outline-none focus:border-[#c9988e]" placeholder="Kigali" />
+              <input type="text" className="w-full rounded-xl border border-[#ead9d4] bg-white px-4 py-3 outline-none focus:border-[#c9988e]" placeholder="Bonita Springs" />
             </div>
           </div>
 
@@ -126,7 +126,7 @@ const ShopPage = () => {
               const message = encodeURIComponent(
                 'Hello Deliphine Beauty Studio, I would like to place an order. Please confirm the items and delivery details.',
               );
-              window.open(`https://wa.me/250781216840?text=${message}`, '_blank', 'noopener,noreferrer');
+              window.open(`https://wa.me/12393991228?text=${message}`, '_blank', 'noopener,noreferrer');
             }}
             className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#2b1b1d] px-6 py-3 font-semibold text-white hover:bg-[#4b2d2f]"
           >

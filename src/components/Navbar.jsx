@@ -34,7 +34,7 @@ const Navbar = () => {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a href="tel:+250781216840" className="hidden items-center gap-2 rounded-full border border-[#e9d4ce] bg-white px-4 py-2 text-sm font-semibold text-[#2b1b1d] transition hover:border-[#cda09a] lg:inline-flex">
+          <a href="tel:+12393991228" className="hidden items-center gap-2 rounded-full border border-[#e9d4ce] bg-white px-4 py-2 text-sm font-semibold text-[#2b1b1d] transition hover:border-[#cda09a] lg:inline-flex">
             <Phone size={15} />
             Call now
           </a>

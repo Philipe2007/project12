@@ -9,7 +9,7 @@ const AboutPage = () => (
         <SectionHeader
           eyebrow="About us"
           title="A women’s salon built around comfort, beauty and trust."
-          description="Ngabo Fashion Hair Saloon is a Kigali-based women-only salon focused on professional hair styling, quality products, comfort and customer experience."
+          description="Deliphine Beauty Studio is a Bonita Springs beauty studio focused on professional hair styling, quality products, comfort and customer experience."
         />
 
         <div className="mt-8 space-y-5 text-lg leading-8 text-[#4b3c3a]">
