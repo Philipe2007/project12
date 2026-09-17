@@ -231,7 +231,7 @@ export const reasons = [
   },
   {
     title: 'Transparent prices',
-    text: 'Clear prices in RWF with no hidden costs and easy payment options.',
+    text: 'Clear prices in dollars with no hidden costs and easy payment options.',
   },
   {
     title: 'Clean, welcoming space',
@@ -298,7 +298,10 @@ export const serviceCategories = [
 
 export const homepageGallery = galleryItems.slice(0, 6);
 
-export const formatPrice = (value) => new Intl.NumberFormat('en-US').format(value) + ' RWF';
+export const formatPrice = (value) => new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+}).format(value / 100);
 
 export const formatServicePrice = (service) => service.priceLabel || formatPrice(service.price);
 
