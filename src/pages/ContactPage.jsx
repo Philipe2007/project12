@@ -1,6 +1,7 @@
 import { Clock3, MapPin, MessageCircle, Phone } from 'lucide-react';
 import SectionHeader from '../components/SectionHeader';
 import { businessInfo } from '../data/siteData';
+import locationPhoto from '../images/location1.jpeg';
 
 const ContactPage = () => {
   const handleSubmit = (event) => {
@@ -29,6 +30,15 @@ const ContactPage = () => {
               <MapPin className="mt-1 text-[#7a4d46]" size={18} />
               <span>{businessInfo.address}</span>
             </div>
+            <div className="overflow-hidden rounded-[1.5rem] border border-[#efd9d2] bg-[#f9efe9] p-2">
+              <img
+                src={locationPhoto}
+                alt="J. Lee Salon Suites building at 24880 South Tamiami Trail"
+                className="h-64 w-full rounded-[1rem] object-cover"
+                loading="lazy"
+              />
+              <p className="px-2 pb-1 pt-3 text-sm font-semibold text-[#7a4d46]">Look for the Salon Suites building and clock near the entrance.</p>
+            </div>
             <div className="flex items-start gap-3">
               <Phone className="mt-1 text-[#7a4d46]" size={18} />
               <a href="tel:+12393991228" className="hover:text-[#7a4d46]">{businessInfo.phone}</a>
@@ -52,6 +62,14 @@ const ContactPage = () => {
               referrerPolicy="no-referrer-when-downgrade"
             />
           </div>
+          <a
+            href="https://www.google.com/maps/dir/?api=1&destination=J.+Lee+Salon+Suites,+24880+S+Tamiami+Trl+%231,+Bonita+Springs,+FL+34134"
+            target="_blank"
+            rel="noreferrer"
+            className="mt-4 inline-flex rounded-full bg-[#2b1b1d] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#4b2d2f]"
+          >
+            Get directions
+          </a>
         </div>
 
         <form onSubmit={handleSubmit} className="rounded-[1.8rem] border border-[#efd9d2] bg-[#f9efe9] p-6 shadow-[0_18px_35px_rgba(48,34,34,0.04)]">

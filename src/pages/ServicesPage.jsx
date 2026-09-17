@@ -26,7 +26,7 @@ const ServicesPage = () => {
                   <Clock3 size={16} /> {service.duration}
                 </span>
                 <span className="inline-flex items-center gap-2 rounded-full border border-[#ecd9d4] bg-white px-3 py-2 font-semibold text-[#201918]">
-                  <MapPin size={16} /> mmmmmmmmm
+                  <MapPin size={16} /> 
                 </span>
               </div>
 
