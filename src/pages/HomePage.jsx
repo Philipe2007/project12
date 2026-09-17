@@ -4,10 +4,10 @@ import { businessInfo, formatPrice, galleryItems, heroStats, reasons, services, 
 import SectionHeader from '../components/SectionHeader';
 import ServiceCard from '../components/ServiceCard';
 import GalleryGrid from '../components/GalleryGrid';
-import heroImage from '../images/7.jpeg';
-import featuredImageOne from '../images/8.jpeg';
-import featuredImageTwo from '../images/9.jpeg';
-import featuredImageThree from '../images/10.jpeg';
+import heroImage from '../images/Silk Press - Classic Silk Press.jpg';
+import featuredImageOne from '../images/Amazon_com _ 12A Deep Wave Bundles Human Hair 24….jpg';
+import featuredImageTwo from '../images/Elegant Box Braids with Top Bun and Beaded Accents.jpg';
+import featuredImageThree from '../images/Dark Brown Hair with Blonde Highlights Balayage Face Framing.jpg';
 
 const HomePage = () => (
   <>
