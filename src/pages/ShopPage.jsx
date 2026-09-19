@@ -8,8 +8,61 @@ import { useCart } from '../context/CartContext';
 const ShopPage = () => {
   const { items, addToCart, removeFromCart, updateQuantity, subtotal, clearCart } = useCart();
   const [checkoutOpen, setCheckoutOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    fullName: '',
+    phone: '',
+    whatsapp: '',
+    location: '',
+    notes: '',
+  });
 
   const total = useMemo(() => subtotal, [subtotal]);
+
+  const groupedProducts = useMemo(() => {
+    const groups = [
+      'Color Packages',
+      'Root Color Packages',
+      'Texture Packages',
+      'Treatments',
+      'Styling upgrades',
+      'Additional color',
+    ];
+
+    return groups
+      .map((groupName) => ({
+        name: groupName,
+        items: products.filter((product) => product.category === groupName),
+      }))
+      .filter((group) => group.items.length > 0);
+  }, []);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((current) => ({ ...current, [name]: value }));
+  };
+
+  const buildWhatsAppMessage = () => {
+    const orderLines = items.map((item) => `${item.name} x${item.quantity} — ${formatPrice(item.price * item.quantity)}`).join('\n');
+
+    return [
+      'Hello Deliphine Beauty Studio,',
+      '',
+      'I would like to place an order. Please confirm the details below.',
+      '',
+      `Customer: ${formData.fullName || 'Not provided'}`,
+      `Phone: ${formData.phone || 'Not provided'}`,
+      `WhatsApp: ${formData.whatsapp || 'Not provided'}`,
+      `Location: ${formData.location || 'Not provided'}`,
+      '',
+      'Order items:',
+      orderLines,
+      '',
+      `Subtotal: ${formatPrice(total)}`,
+      formData.notes ? `Notes: ${formData.notes}` : '',
+    ]
+      .filter(Boolean)
+      .join('\n');
+  };
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
@@ -20,9 +73,21 @@ const ShopPage = () => {
       />
 
       <div className="mt-10 grid gap-8 lg:grid-cols-[1.35fr_0.65fr]">
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {products.map((product) => (
-            <ProductCard key={product.id} product={product} onAddToCart={addToCart} />
+        <div className="space-y-10">
+          {groupedProducts.map((group) => (
+            <section key={group.name}>
+              <div className="mb-5 flex items-center gap-3">
+                <span className="h-px flex-1 bg-[#efdad5]" />
+                <h2 className="text-sm font-black uppercase tracking-[0.22em] text-[#7a4d46]">{group.name}</h2>
+                <span className="h-px flex-1 bg-[#efdad5]" />
+              </div>
+
+              <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+                {group.items.map((product) => (
+                  <ProductCard key={product.id} product={product} onAddToCart={addToCart} />
+                ))}
+              </div>
+            </section>
           ))}
         </div>
 
@@ -99,33 +164,66 @@ const ShopPage = () => {
           <div className="mt-6 grid gap-5 md:grid-cols-2">
             <div>
               <label className="mb-2 block text-sm font-semibold text-[#201918]">Full name</label>
-              <input type="text" className="w-full rounded-xl border border-[#ead9d4] bg-white px-4 py-3 outline-none focus:border-[#c9988e]" placeholder="Your name" />
+              <input
+                type="text"
+                name="fullName"
+                value={formData.fullName}
+                onChange={handleChange}
+                className="w-full rounded-xl border border-[#ead9d4] bg-white px-4 py-3 outline-none focus:border-[#c9988e]"
+                placeholder="Your name"
+              />
             </div>
             <div>
               <label className="mb-2 block text-sm font-semibold text-[#201918]">Phone</label>
-              <input type="tel" className="w-full rounded-xl border border-[#ead9d4] bg-white px-4 py-3 outline-none focus:border-[#c9988e]" placeholder="+250..." />
+              <input
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                className="w-full rounded-xl border border-[#ead9d4] bg-white px-4 py-3 outline-none focus:border-[#c9988e]"
+                placeholder="+250..."
+              />
             </div>
             <div>
               <label className="mb-2 block text-sm font-semibold text-[#201918]">WhatsApp</label>
-              <input type="tel" className="w-full rounded-xl border border-[#ead9d4] bg-white px-4 py-3 outline-none focus:border-[#c9988e]" placeholder="+250..." />
+              <input
+                type="tel"
+                name="whatsapp"
+                value={formData.whatsapp}
+                onChange={handleChange}
+                className="w-full rounded-xl border border-[#ead9d4] bg-white px-4 py-3 outline-none focus:border-[#c9988e]"
+                placeholder="+250..."
+              />
             </div>
             <div>
               <label className="mb-2 block text-sm font-semibold text-[#201918]">Delivery / location</label>
-              <input type="text" className="w-full rounded-xl border border-[#ead9d4] bg-white px-4 py-3 outline-none focus:border-[#c9988e]" placeholder="Bonita Springs" />
+              <input
+                type="text"
+                name="location"
+                value={formData.location}
+                onChange={handleChange}
+                className="w-full rounded-xl border border-[#ead9d4] bg-white px-4 py-3 outline-none focus:border-[#c9988e]"
+                placeholder="Bonita Springs"
+              />
             </div>
           </div>
 
           <div className="mt-5">
             <label className="mb-2 block text-sm font-semibold text-[#201918]">Notes</label>
-            <textarea rows="4" className="w-full rounded-xl border border-[#ead9d4] bg-white px-4 py-3 outline-none focus:border-[#c9988e]" placeholder="Add any instructions" />
+            <textarea
+              rows="4"
+              name="notes"
+              value={formData.notes}
+              onChange={handleChange}
+              className="w-full rounded-xl border border-[#ead9d4] bg-white px-4 py-3 outline-none focus:border-[#c9988e]"
+              placeholder="Add any instructions"
+            />
           </div>
 
           <button
             type="button"
             onClick={() => {
-              const message = encodeURIComponent(
-                'Hello Deliphine Beauty Studio, I would like to place an order. Please confirm the items and delivery details.',
-              );
+              const message = encodeURIComponent(buildWhatsAppMessage());
               window.open(`https://wa.me/12393991228?text=${message}`, '_blank', 'noopener,noreferrer');
             }}
             className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#2b1b1d] px-6 py-3 font-semibold text-white hover:bg-[#4b2d2f]"

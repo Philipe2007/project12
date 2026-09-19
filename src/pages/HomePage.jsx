@@ -95,9 +95,9 @@ const HomePage = () => (
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {[
-            { name: 'Luxury weave', price: 120000, image: featuredImageOne, tag: 'Signature' },
-            { name: 'Bridal glam', price: 180000, image: featuredImageTwo, tag: 'Bridal' },
-            { name: 'Soft wave set', price: 95000, image: featuredImageThree, tag: 'Trending' },
+            { name: 'Luxury weave', image: featuredImageOne, tag: 'Signature' },
+            { name: 'Bridal glam', image: featuredImageTwo, tag: 'Bridal' },
+            { name: 'Soft wave set',image: featuredImageThree, tag: 'Trending' },
           ].map((look) => (
             <div key={look.name} className="overflow-hidden rounded-[1.7rem] border border-white/10 bg-white/5 shadow-[0_20px_40px_rgba(0,0,0,0.14)]">
               <img src={look.image} alt={look.name} className="h-72 w-full object-cover" loading="lazy" />
@@ -107,7 +107,6 @@ const HomePage = () => (
                     <p className="text-[10px] uppercase tracking-[0.2em] text-[#f0d8d1]">{look.tag}</p>
                     <h3 className="mt-2 text-2xl font-black text-white">{look.name}</h3>
                   </div>
-                  <span className="rounded-full bg-[#f0d8d1] px-3 py-2 text-sm font-bold text-[#2b1b1d]">{formatPrice(look.price)}</span>
                 </div>
               </div>
             </div>
