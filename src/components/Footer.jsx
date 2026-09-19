@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Clock3, MapPin, MessageCircle, Phone } from 'lucide-react';
+import logo from '../images/logo.jpeg';
 import { businessInfo } from '../data/siteData';
 
 const Footer = () => (
@@ -7,7 +8,11 @@ const Footer = () => (
     <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
       <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr_0.8fr_1.2fr]">
         <div>
-          <p className="text-lg font-black tracking-[0.2em] text-[#2b1b1d]">DELIPHINE</p>
+          <img
+            src={logo}
+            alt="Deliphine Beauty Studio logo"
+            className="h-16 w-auto rounded-[1.1rem] border border-[#e6d0ca] bg-[#1b1718] object-cover shadow-[0_12px_22px_rgba(43,27,29,0.12)]"
+          />
           <p className="mt-4 max-w-sm text-base leading-7 text-[#564744]">
             A welcoming beauty studio in Bonita Springs offering cuts, color, styling, treatments and bridal beauty.
           </p>
