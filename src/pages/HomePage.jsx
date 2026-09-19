@@ -55,7 +55,6 @@ const HomePage = () => (
           <div className="absolute -left-5 bottom-8 rounded-2xl border border-[#ecd9d5] bg-white/85 p-4 shadow-xl backdrop-blur-sm">
             <p className="text-[10px] uppercase tracking-[0.2em] text-[#6f453f]">Best seller</p>
             <p className="mt-2 text-xl font-black text-[#2b1b1d]">Luxury weave</p>
-            <p className="mt-1 text-sm text-[#684a48]">From {formatPrice(120000)}</p>
           </div>
         </div>
       </div>
@@ -213,7 +212,6 @@ const HomePage = () => (
             <div>
               <p className="text-sm font-semibold text-[#f7e8e5]">Most popular</p>
               <h3 className="mt-2 text-2xl font-black text-white">Luxury weave</h3>
-              <p className="mt-2 text-sm text-[#f0d8d1]">From {formatPrice(120000)}</p>
             </div>
             <div>
               <p className="text-sm font-semibold text-[#f7e8e5]">Availability</p>

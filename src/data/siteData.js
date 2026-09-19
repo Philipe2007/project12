@@ -8,8 +8,39 @@ import silkPressImage from '../images/Silk Press - Classic Silk Press.jpg';
 import facialImage from '../images/The Step-by-Step Protocol for_ a Facial Wax (Eyebrows_Lip_Chin) - The.jpg';
 import deepWaveImage from '../images/Amazon_com _ 12A Deep Wave Bundles Human Hair 24….jpg';
 import hairCareImage from '../images/The Conditioner Texture That Leaves Hair Silky Without Feeling Heavy.jpg';
+import sign from '../images/sign.jpg';
+import occasion_updo from '../images/Explore 40+  frontal ponytail updo hairstyles….jpg';
+import rootTouchUp from '../images/rootTouchUp.jpg';
+import grayColorCom from '../images/grayColorCom.jpg';
+import foil from '../images/foil.jpg';
+import full from '../images/full.jpg';
+import balayage from '../images/balayage.jpg';
+import balayage1 from '../images/balayage.jpg';
+import platinum from '../images/platinum.jpg';
+import faceFraming from '../images/faceFraming.jpg';
+import braid from '../images/braid.jpg';
+import crochet from '../images/crochet.jpg';
+import boho from '../images/boho.jpg';  
+import relaxer from '../images/relaxer.jpg';
+import specialtPerm from '../images/special_perm.jpg';
+import deep_condtion from '../images/deep_conditions.jpg';
+import oplex from '../images/oplex.jpg';
+import scalp from '../images/sclap.jpg';
+import faciar from '../images/facial.jpg';
+import eyeblow from '../images/eyeblow.jpg';
+import aaa from '../images/amaaa.jpg';
+import kkkk from '../images/kkkkk.jpg'
 
 const salonImages = {
+  kkkk:kkkk,
+  aaa: aaa,
+  eyeblow: eyeblow,
+  faciar: faciar,
+  scalp: scalp,
+  oplex: oplex,
+  deep_condtion: deep_condtion,
+  relaxer: relaxer,
+  crochet:crochet,
   haircut: shortFadeImage,
   silkPress: silkPressImage,
   braids: boxBraidsImage,
@@ -21,9 +52,30 @@ const salonImages = {
   facial: facialImage,
   hairCare: hairCareImage,
   deepWave: deepWaveImage,
+  sign: sign,
+  occasion_updo: occasion_updo,
+  rootTouchUp: rootTouchUp,
+  grayColorCom: grayColorCom,
+  foil: foil,
+  full: full,
+  balayage: balayage,
+  balayage1:balayage1,
+  platinum: platinum,
+  faceFraming: faceFraming,
+  braid:braid,
+  boho: boho,
+  specialtPerm: specialtPerm,
 };
 
 const serviceImages = {
+  kkkk:kkkk,
+  aaa: salonImages.aaa,
+  eyeblow: salonImages.eyeblow,
+  faciar: salonImages.faciar,
+  scalp: salonImages.scalp,
+  oplex: salonImages.oplex,
+  relaxer: salonImages.relaxer,
+  crochet:salonImages.crochet,
   shortCut: salonImages.haircut,
   silkPress: salonImages.silkPress,
   foilColor: salonImages.color,
@@ -36,6 +88,21 @@ const serviceImages = {
   classicCut: salonImages.haircut,
   layeredBob: salonImages.haircut,
   colorProcess: salonImages.color,
+  sign: salonImages.sign,
+  occasion_updo: salonImages.occasion_updo,
+  rootTouchUp: salonImages.rootTouchUp,
+  grayColorCom: salonImages.grayColorCom,
+  foil: salonImages.foil,
+  full: salonImages.full,
+  balayage:salonImages.balayage,
+  balayage1:salonImages.balayage1,
+  platinum: salonImages.platinum,
+  faceFraming: salonImages.faceFraming,
+  braid:salonImages.braid,
+  boho: salonImages.boho,
+  specialtPerm: salonImages.specialtPerm,
+  deep_condtion: salonImages.deep_condtion,
+  
 };
 
 export const businessInfo = {
@@ -85,52 +152,44 @@ const createService = (name, category, duration, priceLabel = callForPricing, im
 });
 
 export const services = [
-  createService("Ladies' Signature Haircut", 'Haircuts & Styling', '45-60 min', '$40', serviceImages.silkPress),
+  createService("Ladies' Signature Haircut", 'Haircuts & Styling', '45-60 min', '$40', serviceImages.sign),
   createService("Gentlemen's Cut", 'Haircuts & Styling', '30-45 min', '$40', serviceImages.kidsCut),
-  createService('Classic Blowout', 'Haircuts & Styling', '30-45 min', '$40', serviceImages.silkPress),
+  createService('Classic Blowout', 'Haircuts & Styling', '30-45 min', '$40', serviceImages.colorProcess),
   createService('Silk Press', 'Haircuts & Styling', '45-60 min', '$83', serviceImages.silkPress),
-  createService('Special Occasion Updo', 'Haircuts & Styling', '45-60 min', '$54', serviceImages.shortCut),
+  createService('Special Occasion Updo', 'Haircuts & Styling', '45-60 min', '$54', serviceImages.occasion_updo),
 
-  createService('Root Touch-Up', 'Hair Color', '60-90 min', '$93', serviceImages.colorProcess),
+  createService('Root Touch-Up', 'Hair Color', '60-90 min', '$93', serviceImages.rootTouchUp),
   createService('Root Touch-Up + Gloss', 'Hair Color', '90-120 min', '$185', serviceImages.colorProcess),
-  createService('Express Color', 'Hair Color', '60-90 min', '$103', serviceImages.foilColor),
-  createService('Gray Blending / Color Camo', 'Hair Color', '30-60 min', '$49', serviceImages.dimensionalColor),
+  createService('Express Color', 'Hair Color', '60-90 min', '$103', serviceImages.kkkk),
+  createService('Gray Blending / Color Camo', 'Hair Color', '30-60 min', '$49', serviceImages.grayColorCom),
 
-  createService('Partial Foil', 'Highlights & Balayage', '60-90 min', '$104', serviceImages.foilColor),
-  createService('Full Foil', 'Highlights & Balayage', '90-120 min', '$140', serviceImages.dimensionalColor),
-  createService('Partial Balayage', 'Highlights & Balayage', '60-90 min', '$112', serviceImages.dimensionalColor),
-  createService('Full Balayage', 'Highlights & Balayage', '90-120 min', '$149', serviceImages.dimensionalColor),
-  createService('Specialty Highlights', 'Highlights & Balayage', '90-120 min', '$166', serviceImages.foilColor),
-  createService('Platinum Card Highlights', 'Highlights & Balayage', '120-180 min', '$220', serviceImages.foilColor),
-  createService('Face-Framing / Accent Foil', 'Highlights & Balayage', '45-60 min', '$92', serviceImages.foilColor),
+  createService('Partial Foil', 'Highlights & Balayage', '60-90 min', '$104', serviceImages.foil),
+  createService('Full Foil', 'Highlights & Balayage', '90-120 min', '$140', serviceImages.full),
+  createService('Partial Balayage', 'Highlights & Balayage', '60-90 min', '$112', serviceImages.balayage1),
+  createService('Full Balayage', 'Highlights & Balayage', '90-120 min', '$149', serviceImages.balayage),
+  createService('Specialty Highlights', 'Highlights & Balayage', '90-120 min', '$166', serviceImages.highlight),
+  createService('Platinum Card Highlights', 'Highlights & Balayage', '120-180 min', '$220', serviceImages.platinum),
+  createService('Face-Framing / Accent Foil', 'Highlights & Balayage', '45-60 min', '$92', serviceImages.faceFraming),
 
-  createService('Knotless Braids', 'Braids & Protective Styles', 'Variable', 'Variable', serviceImages.sleekFinish),
+  createService('Knotless Braids', 'Braids & Protective Styles', 'Variable', 'Variable', serviceImages.braid),
   createService('Box Braids', 'Braids & Protective Styles', 'Variable', 'Variable', serviceImages.sleekFinish),
   createService('Cornrows', 'Braids & Protective Styles', '45-60 min', '$65', salonImages.cornrows),
-  createService('Crochet', 'Braids & Protective Styles', 'Variable', 'Variable', serviceImages.naturalTexture),
-  createService('Boho Braids', 'Braids & Protective Styles', 'Variable', 'Variable', serviceImages.naturalTexture),
+  createService('Crochet', 'Braids & Protective Styles', 'Variable', 'Variable', serviceImages.crochet),
+  createService('Boho Braids', 'Braids & Protective Styles', 'Variable', 'Variable', serviceImages.boho),
   createService('Sew-In / Sewing', 'Braids & Protective Styles', 'Variable', '$200', salonImages.weave),
 
-  createService('Relaxer', 'Relaxer, Texturizer & Perm', '60-90 min', '$94', serviceImages.naturalTexture),
+  createService('Relaxer', 'Relaxer, Texturizer & Perm', '60-90 min', '$94', serviceImages.relaxer),
   createService('Texturizer', 'Relaxer, Texturizer & Perm', '60-90 min', '$94', serviceImages.naturalTexture),
-  createService('Perm', 'Relaxer, Texturizer & Perm', '90-120 min', '$150', serviceImages.layeredBob),
-  createService('Specialty Perm', 'Relaxer, Texturizer & Perm', '120-150 min', '$195', serviceImages.layeredBob),
+  createService('Perm', 'Relaxer, Texturizer & Perm', '90-120 min', '$150', serviceImages.naturalTexture),
+  createService('Specialty Perm', 'Relaxer, Texturizer & Perm', '120-150 min', '$195', serviceImages.specialtPerm),
 
-  createService('Deep Conditioning Treatment', 'Treatments', '30-45 min', '$45', serviceImages.naturalTexture),
-  createService('Olaplex Treatment', 'Treatments', '30-45 min', '$40', serviceImages.silkPress),
-  createService('Anti-Stress Scalp Massage', 'Treatments', '30-45 min', '$40', serviceImages.silkPress),
+  createService('Deep Conditioning Treatment', 'Treatments', '30-45 min', '$45', serviceImages.deep_condtion),
+  createService('Olaplex Treatment', 'Treatments', '30-45 min', '$40', serviceImages.oplex),
+  createService('Anti-Stress Scalp Massage', 'Treatments', '30-45 min', '$40', serviceImages.scalp),
 
-  createService('Facial', 'Facials & Brows', '60 min', '$75', salonImages.facial),
-  createService('Eyebrow Tint', 'Facials & Brows', '20 min', '$20', salonImages.facial),
+  createService('Facial', 'Facials & Brows', '60 min', '$75', salonImages.faciar),
+  createService('Eyebrow Tint', 'Facials & Brows', '20 min', '$20', salonImages.eyeblow),
   createService('Facial Waxing', 'Facials & Brows', '20 min', '$20', salonImages.facial),
-
-  createService('Color Packages', 'Packages', 'Variable', 'Call for pricing', serviceImages.foilColor),
-  createService('Root Color Packages', 'Packages', 'Variable', 'Call for pricing', serviceImages.colorProcess),
-  createService('Texture Packages', 'Packages', 'Variable', 'Call for pricing', serviceImages.naturalTexture),
-
-  createService('Treatments', 'Add-ons', 'Variable', 'Call for pricing', serviceImages.naturalTexture),
-  createService('Styling Upgrades', 'Add-ons', 'Variable', 'Call for pricing', serviceImages.silkPress),
-  createService('Additional Color', 'Add-ons', 'Variable', 'Call for pricing', serviceImages.foilColor),
 ];
 
 export const products = [
@@ -140,7 +199,6 @@ export const products = [
     slug: 'luodais-no5-shine-styling',
     category: 'Hair Care',
     description: 'Lightweight shine styling spray that gives a sleek finish and smooth movement.',
-    price: 8000,
     image: salonImages.hairCare,
     stock: 12,
     active: true,
@@ -151,7 +209,6 @@ export const products = [
     slug: 'foisoner-argan-oil-serum',
     category: 'Hair Care',
     description: 'Nourishing serum for softness, shine and manageable styling.',
-    price: 15000,
     image: salonImages.hairCare,
     stock: 8,
     active: true,
@@ -162,7 +219,6 @@ export const products = [
     slug: 'brazilian-22-inch',
     category: 'Weaves',
     description: 'Soft and full-bodied Brazilian weave for versatile styling and a glossy finish.',
-    price: 85000,
     image: salonImages.deepWave,
     stock: 5,
     active: true,
@@ -173,7 +229,6 @@ export const products = [
     slug: 'indian-10-inch',
     category: 'Human Hair',
     description: 'A short volume option with a comfortable natural feel and polished look.',
-    price: 65000,
     image: salonImages.deepWave,
     stock: 7,
     active: true,
@@ -184,7 +239,6 @@ export const products = [
     slug: 'indian-16-inch',
     category: 'Human Hair',
     description: 'Beautifully soft and healthy-looking with smooth movement for premium styling.',
-    price: 115000,
     image: salonImages.deepWave,
     stock: 6,
     active: true,
@@ -195,7 +249,6 @@ export const products = [
     slug: 'brazilian',
     category: 'Weaves',
     description: 'High-quality Brazilian hair with a rich texture and flexible styling range.',
-    price: 65000,
     image: salonImages.deepWave,
     stock: 11,
     active: true,
@@ -206,7 +259,6 @@ export const products = [
     slug: 'brazilian-20-inch',
     category: 'Weaves',
     description: 'A flattering medium-long look known for volume, shine and easy styling.',
-    price: 75000,
     image: salonImages.deepWave,
     stock: 9,
     active: true,
@@ -216,7 +268,7 @@ export const products = [
 export const galleryItems = [
   { id: 1, title: 'Braided elegance', category: 'Braids', image: salonImages.boxBraids },
   { id: 2, title: 'Soft wave finish', category: 'Weaves', image: salonImages.deepWave },
-  { id: 3, title: 'Bridal glam', category: 'Bridal', image: salonImages.silkPress },
+  { id: 3, title: 'Bridal glam', category: 'Bridal', image: salonImages.occasion_updo },
   { id: 4, title: 'Fresh color refresh', category: 'Color', image: salonImages.color },
   { id: 5, title: 'Natural shine', category: 'Natural Hair', image: salonImages.naturalHair },
   { id: 6, title: 'Luxury wig finish', category: 'Wigs', image: salonImages.deepWave },
