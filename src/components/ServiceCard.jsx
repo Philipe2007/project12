@@ -2,9 +2,7 @@ import { ArrowRight, Clock3 } from 'lucide-react';
 import { formatServicePrice, squareBookingUrl } from '../data/siteData';
 
 const ServiceCard = ({ service }) => (
-  <article className="group overflow-hidden rounded-[1.7rem] border border-[#f0d9d4] bg-white shadow-[0_18px_40px_rgba(63,39,38,0.04)] transition hover:-translate-y-1 hover:shadow-[0_22px_55px_rgba(63,39,38,0.08)]">
-    <img src={service.image} alt={service.name} className="h-56 w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
-    <div className="p-5">
+  <article className="rounded-[1.7rem] border border-[#f0d9d4] bg-white p-5 shadow-[0_18px_40px_rgba(63,39,38,0.04)] transition hover:-translate-y-1 hover:shadow-[0_22px_55px_rgba(63,39,38,0.08)]">
       <div className="flex items-start justify-between gap-3">
         <div>
           <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#7a4d46]">{service.category}</p>
@@ -26,7 +24,6 @@ const ServiceCard = ({ service }) => (
         Book this service
         <ArrowRight size={16} />
       </a>
-    </div>
   </article>
 );
 

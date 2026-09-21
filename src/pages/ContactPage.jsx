@@ -1,7 +1,7 @@
 import { Clock3, MapPin, MessageCircle, Phone } from 'lucide-react';
 import SectionHeader from '../components/SectionHeader';
 import { businessInfo } from '../data/siteData';
-import locationPhoto from '../images/location1.jpeg';
+import locationPhoto from '../images/WhatsApp Image 2026-09-16 at 18.12.25.jpeg';
 
 const ContactPage = () => {
   const handleSubmit = (event) => {
@@ -33,11 +33,11 @@ const ContactPage = () => {
             <div className="overflow-hidden rounded-[1.5rem] border border-[#efd9d2] bg-[#f9efe9] p-2">
               <img
                 src={locationPhoto}
-                alt="J. Lee Salon Suites building at 24880 South Tamiami Trail"
+                alt="Customer hairstyle from Deliphine Beauty Studio"
                 className="h-64 w-full rounded-[1rem] object-cover"
                 loading="lazy"
               />
-              <p className="px-2 pb-1 pt-3 text-sm font-semibold text-[#7a4d46]">Look for the Salon Suites building and clock near the entrance.</p>
+              <p className="px-2 pb-1 pt-3 text-sm font-semibold text-[#7a4d46]">See our customer work, then contact us to plan your next look.</p>
             </div>
             <div className="flex items-start gap-3">
               <Phone className="mt-1 text-[#7a4d46]" size={18} />

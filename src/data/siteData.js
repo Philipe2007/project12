@@ -1,38 +1,38 @@
-import shortFadeImage from '../images/20 Sharp Short Fade Haircuts for Men Trending Now.jpg';
-import permImage from '../images/50 Perm Hair Ideas to Inspire Your Curly Transformation.jpg';
-import balayageImage from '../images/Dark Brown Hair with Blonde Highlights Balayage Face Framing.jpg';
-import cornrowsImage from '../images/Big Cornrows Bun — Bold, Clean & Low Maintenance Protective Style.jpg';
-import boxBraidsImage from '../images/Elegant Box Braids with Top Bun and Beaded Accents.jpg';
-import sewInImage from '../images/How Long Does A Sew In Last_.jpg';
-import silkPressImage from '../images/Silk Press - Classic Silk Press.jpg';
-import facialImage from '../images/The Step-by-Step Protocol for_ a Facial Wax (Eyebrows_Lip_Chin) - The.jpg';
-import deepWaveImage from '../images/Amazon_com _ 12A Deep Wave Bundles Human Hair 24….jpg';
-import hairCareImage from '../images/The Conditioner Texture That Leaves Hair Silky Without Feeling Heavy.jpg';
-import sign from '../images/sign.jpg';
-import occasion_updo from '../images/Explore 40+  frontal ponytail updo hairstyles….jpg';
-import rootTouchUp from '../images/rootTouchUp.jpg';
-import grayColorCom from '../images/grayColorCom.jpg';
-import foil from '../images/foil.jpg';
-import full from '../images/full.jpg';
-import balayage from '../images/balayage.jpg';
-import balayage1 from '../images/balayage.jpg';
-import platinum from '../images/platinum.jpg';
-import faceFraming from '../images/faceFraming.jpg';
-import braid from '../images/braid.jpg';
-import crochet from '../images/crochet.jpg';
-import boho from '../images/boho.jpg';  
-import relaxer from '../images/relaxer.jpg';
-import specialtPerm from '../images/special_perm.jpg';
-import deep_condtion from '../images/deep_conditions.jpg';
-import oplex from '../images/oplex.jpg';
-import scalp from '../images/sclap.jpg';
-import faciar from '../images/facial.jpg';
-import eyeblow from '../images/eyeblow.jpg';
-import aaa from '../images/amaaa.jpg';
-import kkkk from '../images/kkkkk.jpg';
-import root_12 from '../images/root_12.jpg';
-import texture1 from '../images/texture1.jpg';
-import color_package12 from '../images/color_package12.jpg';
+import shortFadeImage from '../images/WhatsApp Image 2026-09-16 at 18.12.24.jpeg';
+import permImage from '../images/WhatsApp Image 2026-09-16 at 18.12.25.jpeg';
+import balayageImage from '../images/WhatsApp Image 2026-09-16 at 18.12.25 (1).jpeg';
+import cornrowsImage from '../images/WhatsApp Image 2026-09-16 at 18.12.25 (2).jpeg';
+import boxBraidsImage from '../images/WhatsApp Image 2026-09-16 at 18.12.26.jpeg';
+import sewInImage from '../images/WhatsApp Image 2026-09-16 at 18.12.26 (1).jpeg';
+import silkPressImage from '../images/WhatsApp Image 2026-09-16 at 18.12.26 (2).jpeg';
+import facialImage from '../images/WhatsApp Image 2026-09-16 at 18.12.27.jpeg';
+import deepWaveImage from '../images/WhatsApp Image 2026-09-16 at 18.12.27 (1).jpeg';
+import hairCareImage from '../images/WhatsApp Image 2026-09-16 at 18.12.27 (2).jpeg';
+import sign from '../images/WhatsApp Image 2026-09-16 at 18.12.28.jpeg';
+import occasion_updo from '../images/WhatsApp Image 2026-09-16 at 18.12.28 (1).jpeg';
+import rootTouchUp from '../images/WhatsApp Image 2026-09-16 at 18.12.28 (2).jpeg';
+import grayColorCom from '../images/WhatsApp Image 2026-09-16 at 18.12.29.jpeg';
+import foil from '../images/WhatsApp Image 2026-09-16 at 18.12.29 (1).jpeg';
+import full from '../images/WhatsApp Image 2026-09-16 at 18.12.29 (2).jpeg';
+import balayage from '../images/WhatsApp Image 2026-09-16 at 18.12.30.jpeg';
+import balayage1 from '../images/WhatsApp Image 2026-09-16 at 18.12.30 (1).jpeg';
+import platinum from '../images/WhatsApp Image 2026-09-16 at 18.12.30 (2).jpeg';
+import faceFraming from '../images/WhatsApp Image 2026-09-16 at 18.12.31.jpeg';
+import braid from '../images/WhatsApp Image 2026-09-16 at 18.12.31 (1).jpeg';
+import crochet from '../images/WhatsApp Image 2026-09-16 at 18.12.32.jpeg';
+import boho from '../images/WhatsApp Image 2026-09-16 at 18.12.32 (1).jpeg';
+import relaxer from '../images/WhatsApp Image 2026-09-16 at 18.12.32 (2).jpeg';
+import specialtPerm from '../images/WhatsApp Image 2026-09-16 at 18.12.33.jpeg';
+import deep_condtion from '../images/WhatsApp Image 2026-09-16 at 18.12.33 (1).jpeg';
+import oplex from '../images/WhatsApp Image 2026-09-16 at 18.12.33 (2).jpeg';
+import scalp from '../images/WhatsApp Image 2026-09-16 at 18.12.34.jpeg';
+import faciar from '../images/WhatsApp Image 2026-09-16 at 18.12.34 (1).jpeg';
+import eyeblow from '../images/WhatsApp Image 2026-09-16 at 18.12.34 (2).jpeg';
+import aaa from '../images/WhatsApp Image 2026-09-16 at 18.12.35.jpeg';
+import kkkk from '../images/WhatsApp Image 2026-09-16 at 18.12.35 (1).jpeg';
+import root_12 from '../images/WhatsApp Image 2026-09-16 at 18.12.35 (2).jpeg';
+import texture1 from '../images/WhatsApp Image 2026-09-16 at 18.12.36.jpeg';
+import color_package12 from '../images/WhatsApp Image 2026-09-16 at 18.12.36 (1).jpeg';
 
 const salonImages = {
   kkkk:kkkk,
@@ -132,7 +132,6 @@ export const navItems = [
   { label: 'Home', to: '/' },
   { label: 'Services', to: '/services' },
   { label: 'Gallery', to: '/gallery' },
-  { label: 'Shop', to: '/shop' },
   { label: 'About Us', to: '/about' },
   { label: 'Contact', to: '/contact' },
 ];
@@ -145,6 +144,29 @@ export const heroStats = [
 ];
 
 const callForPricing = 'Call for pricing';
+
+export const serviceCategoryGroups = [
+  {
+    name: 'Hair',
+    slug: 'hair',
+    categories: ['Haircuts & Styling', 'Hair Color', 'Highlights & Balayage', 'Braids & Protective Styles', 'Keratin, Relaxer & Perm', 'Treatments'],
+  },
+  {
+    name: 'Beauty',
+    slug: 'beauty',
+    categories: ['Facials & Brows'],
+  },
+  {
+    name: 'Packages',
+    slug: 'packages',
+    categories: ['Color Packages', 'Root Color Packages', 'Texture Packages'],
+  },
+  {
+    name: 'Add-ons',
+    slug: 'add-ons',
+    categories: ['Treatments Add-ons', 'Styling Upgrades', 'Additional Color'],
+  },
+];
 
 const createService = (name, category, duration, priceLabel = callForPricing, image = serviceImages.shortCut, description = '') => ({
   id: name.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
@@ -187,10 +209,10 @@ export const services = [
   createService('Boho Braids', 'Braids & Protective Styles', 'Variable', 'Variable', serviceImages.boho),
   createService('Sew-In / Sewing', 'Braids & Protective Styles', 'Variable', '$200', salonImages.weave),
 
-  createService('Relaxer', 'Relaxer, Texturizer & Perm', '60-90 min', '$94', serviceImages.relaxer),
-  createService('Texturizer', 'Relaxer, Texturizer & Perm', '60-90 min', '$94', serviceImages.naturalTexture),
-  createService('Perm', 'Relaxer, Texturizer & Perm', '90-120 min', '$150', serviceImages.naturalTexture),
-  createService('Specialty Perm', 'Relaxer, Texturizer & Perm', '120-150 min', '$195', serviceImages.specialtPerm),
+  createService('Relaxer', 'Keratin, Relaxer & Perm', '60-90 min', '$94', serviceImages.relaxer),
+  createService('Texturizer', 'Keratin, Relaxer & Perm', '60-90 min', '$94', serviceImages.naturalTexture),
+  createService('Perm', 'Keratin, Relaxer & Perm', '90-120 min', '$150', serviceImages.naturalTexture),
+  createService('Specialty Perm', 'Keratin, Relaxer & Perm', '120-150 min', '$195', serviceImages.specialtPerm),
 
   createService('Deep Conditioning Treatment', 'Treatments', '30-45 min', '$45', serviceImages.deep_condtion),
   createService('Olaplex Treatment', 'Treatments', '30-45 min', '$40', serviceImages.oplex),
@@ -199,6 +221,13 @@ export const services = [
   createService('Facial', 'Facials & Brows', '60 min', '$75', salonImages.faciar),
   createService('Eyebrow Tint', 'Facials & Brows', '20 min', '$20', salonImages.eyeblow),
   createService('Facial Waxing', 'Facials & Brows', '20 min', '$20', salonImages.facial),
+
+  createService('Color Package', 'Color Packages', 'Variable'),
+  createService('Root Color Package', 'Root Color Packages', 'Variable'),
+  createService('Texture Package', 'Texture Packages', 'Variable'),
+  createService('Treatments', 'Treatments Add-ons', 'Variable'),
+  createService('Styling upgrades', 'Styling Upgrades', 'Variable'),
+  createService('Additional color', 'Additional Color', 'Variable'),
 ];
 
 export const products = [
@@ -423,11 +452,15 @@ export const serviceCategories = [
   'Hair Color',
   'Highlights & Balayage',
   'Braids & Protective Styles',
-  'Relaxer, Texturizer & Perm',
+  'Keratin, Relaxer & Perm',
   'Treatments',
   'Facials & Brows',
-  'Packages',
-  'Add-ons',
+  'Color Packages',
+  'Root Color Packages',
+  'Texture Packages',
+  'Treatments Add-ons',
+  'Styling Upgrades',
+  'Additional Color',
 ];
 
 export const homepageGallery = galleryItems.slice(0, 6);

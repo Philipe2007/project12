@@ -1,6 +1,6 @@
 import { CheckCircle2, HeartHandshake, ShieldCheck, Sparkles } from 'lucide-react';
 import SectionHeader from '../components/SectionHeader';
-import salonImage from '../images/Silk Press - Classic Silk Press.jpg';
+import salonImage from '../images/WhatsApp Image 2026-09-16 at 18.12.26.jpeg';
 
 const AboutPage = () => (
   <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">

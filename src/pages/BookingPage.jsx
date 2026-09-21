@@ -74,7 +74,6 @@ const BookingPage = () => {
                         onClick={() => setSelectedService(service)}
                         className={`overflow-hidden rounded-[1.5rem] border text-left transition ${selectedService.id === service.id ? 'border-[#d9968b] bg-[#fff8f6] shadow-[0_18px_35px_rgba(48,34,34,0.04)]' : 'border-[#efd9d2] bg-white'}`}
                       >
-                        <img src={service.image} alt={service.name} className="h-36 w-full object-cover" loading="lazy" />
                         <div className="p-4">
                           <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#7a4d46]">{service.category}</p>
                           <h3 className="mt-2 text-lg font-black text-[#201918]">{service.name}</h3>

@@ -1,22 +1,24 @@
 import { Link, useParams } from 'react-router-dom';
 import { ArrowRight, CheckCircle2, Clock3, MapPin, MessageCircle, ShieldCheck } from 'lucide-react';
-import { services, formatServicePrice, squareBookingUrl } from '../data/siteData';
+import { serviceCategoryGroups, services, formatServicePrice, squareBookingUrl } from '../data/siteData';
 import SectionHeader from '../components/SectionHeader';
 import ServiceCard from '../components/ServiceCard';
 
 const ServicesPage = () => {
-  const { slug } = useParams();
+  const { slug, categorySlug } = useParams();
   const service = services.find((item) => item.slug === slug) || services[0];
+  const selectedGroup = serviceCategoryGroups.find((group) => group.slug === categorySlug);
+  const visibleCategories = selectedGroup?.categories || [];
+  const groupedServices = visibleCategories.map((category) => ({
+    category,
+    items: services.filter((item) => item.category === category),
+  })).filter((group) => group.items.length > 0);
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
       {slug ? (
         <>
-          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-            <div>
-              <img src={service.image} alt={service.name} className="h-[460px] w-full rounded-[1.8rem] object-cover shadow-[0_30px_60px_rgba(32,25,24,0.12)]" loading="lazy" />
-            </div>
-
+          <div className="mx-auto max-w-3xl">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.24em] text-[#7a4d46]">{service.category}</p>
               <h1 className="mt-3 text-4xl font-black tracking-[-0.04em] text-[#201918] sm:text-5xl">{service.name}</h1>
@@ -61,17 +63,45 @@ const ServicesPage = () => {
             </div>
           </div>
         </>
+      ) : categorySlug && selectedGroup ? (
+        <>
+          <SectionHeader
+            eyebrow="Service category"
+            title={selectedGroup.name}
+            description="Choose from the services in this category, then book online or contact us to confirm your appointment."
+          />
+
+          <div className="mt-10 space-y-12">
+            {groupedServices.map((group) => (
+              <section key={group.category}>
+                <div className="mb-5 flex items-center gap-3">
+                  <span className="h-px flex-1 bg-[#efdad5]" />
+                  <h2 className="text-sm font-black uppercase tracking-[0.22em] text-[#7a4d46]">{group.category}</h2>
+                  <span className="h-px flex-1 bg-[#efdad5]" />
+                </div>
+                <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+                  {group.items.map((serviceItem) => <ServiceCard key={serviceItem.id} service={serviceItem} />)}
+                </div>
+              </section>
+            ))}
+          </div>
+        </>
       ) : (
         <>
           <SectionHeader
             eyebrow="Our services"
-            title="A complete menu for cuts, color, treatments and styling."
-            description="Browse services by category. Fixed prices are shown where available; otherwise call us for a personalized quote."
+            title="Choose the kind of appointment you need."
+            description="Browse Hair, Beauty, Packages or Add-ons to see every service in that category."
           />
 
           <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-            {services.map((serviceItem) => (
-              <ServiceCard key={serviceItem.id} service={serviceItem} />
+            {serviceCategoryGroups.map((group) => (
+              <Link key={group.slug} to={`/services/category/${group.slug}`} className="group rounded-[1.7rem] border border-[#efd9d2] bg-white p-6 shadow-[0_18px_35px_rgba(48,34,34,0.04)] transition hover:-translate-y-1 hover:border-[#d9ada5]">
+                <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#7a4d46]">{group.name}</p>
+                <h2 className="mt-3 text-3xl font-black text-[#201918]">{group.categories.length} sections</h2>
+                <p className="mt-4 text-sm leading-6 text-[#5d4540]">{group.categories.join(' · ')}</p>
+                <span className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#7a4d46]">View services <ArrowRight size={16} /></span>
+              </Link>
             ))}
           </div>
         </>

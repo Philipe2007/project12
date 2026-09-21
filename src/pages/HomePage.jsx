@@ -1,13 +1,11 @@
 import { ArrowRight, Clock3, MapPin, MessageCircle, Phone, ShieldCheck, Sparkles, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { businessInfo, formatPrice, galleryItems, heroStats, reasons, services, squareBookingUrl, testimonials } from '../data/siteData';
+import { businessInfo, galleryItems, heroStats, reasons, services, squareBookingUrl, testimonials } from '../data/siteData';
 import SectionHeader from '../components/SectionHeader';
 import ServiceCard from '../components/ServiceCard';
 import GalleryGrid from '../components/GalleryGrid';
-import heroImage from '../images/Silk Press - Classic Silk Press.jpg';
-import featuredImageOne from '../images/Amazon_com _ 12A Deep Wave Bundles Human Hair 24….jpg';
-import featuredImageTwo from '../images/Elegant Box Braids with Top Bun and Beaded Accents.jpg';
-import featuredImageThree from '../images/Dark Brown Hair with Blonde Highlights Balayage Face Framing.jpg';
+import heroImage from '../images/WhatsApp Image 2026-09-16 at 18.12.24.jpeg';
+import locationImage from '../images/WhatsApp Image 2026-09-16 at 18.12.25.jpeg';
 
 const HomePage = () => (
   <>
@@ -83,42 +81,28 @@ const HomePage = () => (
 
     <section className="bg-[#2b1b1d] py-20 text-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-10 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#f0d8d1]">Take the look home</p>
-            <h2 className="mt-3 text-3xl font-black tracking-[-0.04em] text-white sm:text-4xl">Salon-quality hair care — order online or shop in-store.</h2>
-          </div>
-          <Link to="/shop" className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-[#f0d8d1]">
-            Shop and book <ArrowRight size={16} />
-          </Link>
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {[
-            { name: 'Luxury weave', image: featuredImageOne, tag: 'Signature' },
-            { name: 'Bridal glam', image: featuredImageTwo, tag: 'Bridal' },
-            { name: 'Soft wave set',image: featuredImageThree, tag: 'Trending' },
-          ].map((look) => (
-            <div key={look.name} className="overflow-hidden rounded-[1.7rem] border border-white/10 bg-white/5 shadow-[0_20px_40px_rgba(0,0,0,0.14)]">
-              <img src={look.image} alt={look.name} className="h-72 w-full object-cover" loading="lazy" />
-              <div className="p-5">
-                <div className="flex items-center justify-between gap-3">
-                  <div>
-                    <p className="text-[10px] uppercase tracking-[0.2em] text-[#f0d8d1]">{look.tag}</p>
-                    <h3 className="mt-2 text-2xl font-black text-white">{look.name}</h3>
-                  </div>
-                </div>
-              </div>
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#f0d8d1]">Customer spotlight</p>
+            <h2 className="mt-3 text-3xl font-black tracking-[-0.04em] text-white sm:text-4xl">Beautiful work, made for every customer.</h2>
+            <p className="mt-5 max-w-xl text-lg leading-8 text-[#f2e3df]">Explore real customer styles from Deliphine Beauty Studio, then visit us for your own personalized look.</p>
+            <div className="mt-7 flex items-start gap-3 text-[#f7e8e5]">
+              <MapPin size={20} className="mt-1 shrink-0 text-[#f0d8d1]" />
+              <span>{businessInfo.address}</span>
             </div>
-          ))}
+          </div>
+          <div className="overflow-hidden rounded-[1.7rem] border border-white/10 bg-white/5 p-2 shadow-[0_25px_60px_rgba(0,0,0,0.2)]">
+            <img src={locationImage} alt="Customer wearing a finished braided hairstyle" className="h-[360px] w-full rounded-[1.25rem] object-cover" loading="lazy" />
+          </div>
         </div>
       </div>
     </section>
 
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
       <SectionHeader
-        eyebrow="Hair as art"
-        title="Real finished styles, straight from our salon chairs."
+        eyebrow="Our customers"
+        title="Real looks created for our customers."
+        description="Browse a selection of styles, color and beauty looks from the Deliphine Beauty Studio chair."
       />
       <div className="mt-10">
         <GalleryGrid items={galleryItems.slice(0, 6)} />

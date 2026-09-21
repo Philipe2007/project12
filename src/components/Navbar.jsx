@@ -1,7 +1,6 @@
 import { Menu, Phone, X } from 'lucide-react';
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import logo from '../images/logo.jpeg';
 import { navItems, squareBookingUrl } from '../data/siteData';
 
 const Navbar = () => {
@@ -11,11 +10,7 @@ const Navbar = () => {
     <header className="sticky top-0 z-40 border-b border-[#efe1dc] bg-[#faf4f0]/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center gap-3" aria-label="Deliphine Beauty Studio home">
-          <img
-            src={logo}
-            alt="Deliphine Beauty Studio logo"
-            className="h-14 w-auto rounded-[1.2rem] border border-[#e8d3cd] bg-[#1b1718] object-cover shadow-[0_12px_28px_rgba(43,27,29,0.18)] transition-transform duration-200 hover:scale-[1.02]"
-          />
+          <span className="max-w-[10rem] text-lg font-black leading-tight text-[#2b1b1d]">Deliphine Beauty Studio</span>
         </Link>
 
         <nav className="hidden items-center gap-7 text-sm font-medium text-[#2d2424] lg:flex">

@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { Clock3, MapPin, MessageCircle, Phone } from 'lucide-react';
-import logo from '../images/logo.jpeg';
 import { businessInfo } from '../data/siteData';
 
 const Footer = () => (
@@ -8,11 +7,7 @@ const Footer = () => (
     <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
       <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr_0.8fr_1.2fr]">
         <div>
-          <img
-            src={logo}
-            alt="Deliphine Beauty Studio logo"
-            className="h-16 w-auto rounded-[1.1rem] border border-[#e6d0ca] bg-[#1b1718] object-cover shadow-[0_12px_22px_rgba(43,27,29,0.12)]"
-          />
+          <p className="max-w-xs text-2xl font-black leading-tight text-[#2b1b1d]">Deliphine Beauty Studio</p>
           <p className="mt-4 max-w-sm text-base leading-7 text-[#564744]">
             A welcoming beauty studio in Bonita Springs offering cuts, color, styling, treatments and bridal beauty.
           </p>
@@ -23,7 +18,6 @@ const Footer = () => (
           <div className="mt-4 space-y-3 text-sm text-[#4e3f3d]">
             <Link to="/services" className="block transition hover:text-[#7a4d46]">Services</Link>
             <Link to="/gallery" className="block transition hover:text-[#7a4d46]">Gallery</Link>
-            <Link to="/shop" className="block transition hover:text-[#7a4d46]">Shop</Link>
             <Link to="/about" className="block transition hover:text-[#7a4d46]">About Us</Link>
             <Link to="/contact" className="block transition hover:text-[#7a4d46]">Contact</Link>
           </div>
