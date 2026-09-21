@@ -11,7 +11,7 @@ import BookingPage from './pages/BookingPage';
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#faf4f0] text-[#201918]">
+    <div className="min-h-screen bg-[var(--brand-cream)] text-[var(--brand-ink)]">
         <Navbar />
 
         <main>

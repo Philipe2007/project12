@@ -4,21 +4,22 @@ import { businessInfo, galleryItems, heroStats, reasons, services, squareBooking
 import SectionHeader from '../components/SectionHeader';
 import ServiceCard from '../components/ServiceCard';
 import GalleryGrid from '../components/GalleryGrid';
-import heroImage from '../images/WhatsApp Image 2026-09-16 at 18.12.24.jpeg';
-import locationImage from '../images/WhatsApp Image 2026-09-16 at 18.12.25.jpeg';
+import locationImage from '../location/WhatsApp Image 2026-09-17 at 15.25.34.jpeg';
+import locationImage2 from '../location/WhatsApp Image 2026-09-17 at 15.25.35.jpeg';
+import salonVideo from '../location/WhatsApp Video 2026-09-17 at 15.25.34.mp4';
 
 const HomePage = () => (
   <>
-    <section className="relative overflow-hidden bg-[#f9efe9] text-[#201918]">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(204,155,145,0.24),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(146,106,100,0.18),transparent_30%)]" />
+    <section className="relative overflow-hidden bg-[var(--brand-ivory)] text-[var(--brand-ink)]">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(209,138,154,0.24),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(16,19,21,0.12),transparent_30%)]" />
       <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-10 sm:px-6 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:px-8 lg:py-16">
         <div className="max-w-xl">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#d8b7b0] bg-white/80 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.26em] text-[#6f453f]">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[var(--brand-line)] bg-white/80 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.26em] text-[var(--brand-rose-deep)]">
             <Sparkles size={12} />
             Bonita Springs beauty studio
           </div>
 
-          <h1 className="mt-6 text-4xl font-black leading-[1.05] tracking-[-0.05em] text-[#201918] sm:text-5xl lg:text-7xl">
+          <h1 className="mt-6 text-4xl font-black leading-[1.05] tracking-[-0.05em] text-[var(--brand-ink)] sm:text-5xl lg:text-7xl">
             Hair, beauty and confidence made for women.
           </h1>
 
@@ -27,32 +28,32 @@ const HomePage = () => (
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
-            <a href={squareBookingUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[#2b1b1d] px-7 py-3.5 font-semibold text-white transition hover:bg-[#4a2c2f]">
+            <a href={squareBookingUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[var(--brand-ink)] px-7 py-3.5 font-semibold text-white transition hover:bg-[var(--brand-rose-deep)]">
               Book Now
               <ArrowRight size={18} />
             </a>
-            <Link to="/services" className="inline-flex items-center gap-2 rounded-full border border-[#d8b7b0] bg-white px-7 py-3.5 font-semibold text-[#2b1b1d] transition hover:border-[#c99790] hover:bg-[#fffaf9]">
+            <Link to="/services" className="inline-flex items-center gap-2 rounded-full border border-[var(--brand-line)] bg-white px-7 py-3.5 font-semibold text-[var(--brand-ink)] transition hover:border-[var(--brand-rose)] hover:bg-[var(--brand-rose-soft)]">
               View Services
             </Link>
           </div>
 
           <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {heroStats.map((item) => (
-              <div key={item.label} className="rounded-2xl border border-[#ead9d4] bg-white/80 p-4 shadow-sm">
-                <p className="text-2xl font-black text-[#2b1b1d]">{item.value}</p>
-                <p className="mt-2 text-[10px] uppercase tracking-[0.18em] text-[#6f453f]">{item.label}</p>
+              <div key={item.label} className="rounded-2xl border border-[var(--brand-line)] bg-white/80 p-4 shadow-sm">
+                <p className="text-2xl font-black text-[var(--brand-ink)]">{item.value}</p>
+                <p className="mt-2 text-[10px] uppercase tracking-[0.18em] text-[var(--brand-rose-deep)]">{item.label}</p>
               </div>
             ))}
           </div>
         </div>
 
         <div className="relative">
-          <div className="overflow-hidden rounded-[2rem] border border-[#ead9d4] bg-[#f4e5df] p-3 shadow-[0_30px_60px_rgba(32,25,24,0.12)]">
-            <img src={heroImage} alt="Deliphine beauty salon" className="h-[540px] w-full rounded-[1.5rem] object-cover" loading="eager" />
+          <div className="overflow-hidden rounded-[2rem] border border-[var(--brand-line)] bg-[var(--brand-sand)] p-3 shadow-[0_30px_60px_rgba(16,19,21,0.12)]">
+            <img src={locationImage} alt="Deliphine Beauty Studio salon location" className="h-[540px] w-full rounded-[1.5rem] object-cover" loading="eager" />
           </div>
-          <div className="absolute -left-5 bottom-8 rounded-2xl border border-[#ecd9d5] bg-white/85 p-4 shadow-xl backdrop-blur-sm">
-            <p className="text-[10px] uppercase tracking-[0.2em] text-[#6f453f]">Best seller</p>
-            <p className="mt-2 text-xl font-black text-[#2b1b1d]">Luxury weave</p>
+          <div className="absolute -left-5 bottom-8 rounded-2xl border border-[var(--brand-line)] bg-white/85 p-4 shadow-xl backdrop-blur-sm">
+            <p className="text-[10px] uppercase tracking-[0.2em] text-[var(--brand-rose-deep)]">Best seller</p>
+            <p className="mt-2 text-xl font-black text-[var(--brand-ink)]">Luxury weave</p>
           </div>
         </div>
       </div>
@@ -92,7 +93,26 @@ const HomePage = () => (
             </div>
           </div>
           <div className="overflow-hidden rounded-[1.7rem] border border-white/10 bg-white/5 p-2 shadow-[0_25px_60px_rgba(0,0,0,0.2)]">
-            <img src={locationImage} alt="Customer wearing a finished braided hairstyle" className="h-[360px] w-full rounded-[1.25rem] object-cover" loading="lazy" />
+            <img src={locationImage2} alt="Customer wearing a finished braided hairstyle" className="h-[360px] w-full rounded-[1.25rem] object-cover" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section className="bg-[var(--brand-ivory)] py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--brand-rose-deep)]">Visit the studio</p>
+            <h2 className="mt-3 text-3xl font-black tracking-[-0.04em] text-[var(--brand-ink)] sm:text-4xl">A quick look around the salon and how to find us.</h2>
+            <p className="mt-5 max-w-xl text-lg leading-8 text-[#4b3c3a]">Use the video and location photo together to make your visit easier and feel more confident before you arrive.</p>
+            <div className="mt-7 flex items-start gap-3 text-[var(--brand-ink)]">
+              <MapPin size={20} className="mt-1 shrink-0 text-[var(--brand-rose-deep)]" />
+              <span>{businessInfo.address}</span>
+            </div>
+          </div>
+          <div className="overflow-hidden rounded-[1.7rem] border border-[var(--brand-line)] bg-white p-2 shadow-[0_25px_60px_rgba(16,19,21,0.08)]">
+            <video src={salonVideo} controls playsInline preload="metadata" className="h-[360px] w-full rounded-[1.25rem] object-cover" aria-label="Salon tour video" />
           </div>
         </div>
       </div>

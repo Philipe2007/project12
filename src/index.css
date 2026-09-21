@@ -6,7 +6,17 @@
   line-height: 1.5;
   font-weight: 400;
   background: #fffaf8;
-  color: #2b1d27;
+  color: #17191d;
+  --brand-ink: #101315;
+  --brand-ink-soft: #1b1f22;
+  --brand-rose: #d18a9a;
+  --brand-rose-deep: #b86473;
+  --brand-rose-soft: #f0dde1;
+  --brand-ivory: #f8f3f1;
+  --brand-cream: #fffaf7;
+  --brand-sand: #f2e3df;
+  --brand-line: #ebd8d3;
+  --brand-white: #ffffff;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -20,8 +30,8 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  background: linear-gradient(180deg, #fffaf8 0%, #fff4f7 100%);
-  color: #2b1d27;
+  background: linear-gradient(180deg, #fffaf8 0%, #f9f0ef 100%);
+  color: #17191d;
   overflow-x: hidden;
 }
 

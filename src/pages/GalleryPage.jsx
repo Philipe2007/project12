@@ -7,7 +7,6 @@ const GalleryPage = () => (
     <SectionHeader
       eyebrow="Our customers"
       title="Real looks created in our salon."
-      description="Explore customer-inspired looks in braids, weaves, color, bridal styling and everyday glam."
       align="center"
     />
 

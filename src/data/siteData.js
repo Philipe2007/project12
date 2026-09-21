@@ -377,14 +377,14 @@ export const products = [
 ];
 
 export const galleryItems = [
-  { id: 1, title: 'Braided elegance', category: 'Braids', image: salonImages.boxBraids },
-  { id: 2, title: 'Soft wave finish', category: 'Weaves', image: salonImages.deepWave },
-  { id: 3, title: 'Bridal glam', category: 'Bridal', image: salonImages.occasion_updo },
-  { id: 4, title: 'Fresh color refresh', category: 'Color', image: salonImages.color },
-  { id: 5, title: 'Natural shine', category: 'Natural Hair', image: salonImages.naturalHair },
-  { id: 6, title: 'Luxury wig finish', category: 'Wigs', image: salonImages.deepWave },
-  { id: 7, title: 'Soft glam set', category: 'Braids', image: salonImages.cornrows },
-  { id: 8, title: 'Event-ready look', category: 'Weaves', image: salonImages.weave },
+  { id: 1, title: '',  image: salonImages.boxBraids },
+  { id: 2, title: '',  image: salonImages.deepWave },
+  { id: 3, title: '',  image: salonImages.occasion_updo },
+  { id: 4, title: '',  image: salonImages.color },
+  { id: 5, title: '',  image: salonImages.naturalHair },
+  { id: 6, title: '',  image: salonImages.deepWave },
+  { id: 7, title: '',  image: salonImages.cornrows },
+  { id: 8, title: '',  image: salonImages.weave },
 ];
 
 export const reasons = [
@@ -400,10 +400,7 @@ export const reasons = [
     title: 'Clean, welcoming space',
     text: 'A calm and hygienic salon designed around your comfort and style.',
   },
-  {
-    title: 'Women-only & private',
-    text: 'Built to give every woman a relaxing, respectful and safe experience.',
-  },
+ 
   {
     title: 'Easy online booking',
     text: 'Reserve your chair quickly and get confirmation through WhatsApp.',
