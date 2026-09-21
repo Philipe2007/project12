@@ -51,10 +51,7 @@ const HomePage = () => (
           <div className="overflow-hidden rounded-[2rem] border border-[var(--brand-line)] bg-[var(--brand-sand)] p-3 shadow-[0_30px_60px_rgba(16,19,21,0.12)]">
             <img src={locationImage} alt="Deliphine Beauty Studio salon location" className="h-[540px] w-full rounded-[1.5rem] object-cover" loading="eager" />
           </div>
-          <div className="absolute -left-5 bottom-8 rounded-2xl border border-[var(--brand-line)] bg-white/85 p-4 shadow-xl backdrop-blur-sm">
-            <p className="text-[10px] uppercase tracking-[0.2em] text-[var(--brand-rose-deep)]">Best seller</p>
-            <p className="mt-2 text-xl font-black text-[var(--brand-ink)]">Luxury weave</p>
-          </div>
+
         </div>
       </div>
     </section>
@@ -214,7 +211,7 @@ const HomePage = () => (
           <div className="grid gap-5 sm:grid-cols-2">
             <div>
               <p className="text-sm font-semibold text-[#f7e8e5]">Most popular</p>
-              <h3 className="mt-2 text-2xl font-black text-white">Luxury weave</h3>
+              <h3 className="mt-2 text-2xl font-black text-white">welcome</h3>
             </div>
             <div>
               <p className="text-sm font-semibold text-[#f7e8e5]">Availability</p>
