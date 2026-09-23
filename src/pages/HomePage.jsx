@@ -17,7 +17,7 @@ const HomePage = () => (
           <div className="inline-flex items-center gap-2 rounded-full border border-[var(--brand-line)] bg-white/80 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.26em] text-[var(--brand-rose-deep)]">
             <Sparkles size={12} />      Delphine Beauty studio    </div>
 
-          <h1 className=" font-style:Blackadder mt-6 text-2xl font-black leading-[1.05] tracking-[-0.05em] text-[var(--brand-ink)] sm:text-5xl lg:text-7xl">
+          <h1 className="text-2xl font-black leading-[1.05] tracking-[-0.05em] text-[var(--brand-ink)] sm:text-5xl lg:text-7xl" style={{ fontFamily: '"Blackadder ITC", cursive' }}>
 Relaxing Time - Perfect look!
           </h1>
 
