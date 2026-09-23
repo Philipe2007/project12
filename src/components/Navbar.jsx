@@ -10,10 +10,10 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 z-40 border-b border-[var(--brand-line)] bg-[var(--brand-ivory)]/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-center gap-3" aria-label="Deliphine Beauty Studio home">
+        <Link to="/" className="flex items-center gap-3" aria-label="Delphine Beauty Studio home">
           <img
             src={logo}
-            alt="Deliphine Beauty Studio logo"
+            alt="Delphine Beauty Studio logo"
             className="h-14 w-auto rounded-[1rem] border border-[var(--brand-line)] bg-[var(--brand-ink)] object-cover shadow-[0_12px_28px_rgba(16,19,21,0.14)] transition-transform duration-200 hover:scale-[1.02]"
           />
         </Link>
@@ -78,7 +78,7 @@ const Navbar = () => {
               target="_blank"
               rel="noreferrer"
               onClick={() => setIsOpen(false)}
-              className="mt-2 rounded-xl bg-[#2b1b1d] px-4 py-3 text-center text-sm font-semibold text-white"
+              className="mt-2 rounded-xl bg-[#E0218A] px-4 py-3 text-center text-sm font-semibold text-white"
             >
               Book Now
             </a>

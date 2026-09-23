@@ -11,7 +11,7 @@ const ContactPage = () => {
     const phone = form.get('phone') || 'Not provided';
     const message = form.get('message') || 'Booking request';
     const text = encodeURIComponent(
-      `Hello Deliphine Beauty Studio,\n\nI would like to contact the salon.\nName: ${name}\nPhone: ${phone}\nMessage: ${message}`,
+      `Hello Delphine Beauty Studio,\n\nI would like to contact the salon.\nName: ${name}\nPhone: ${phone}\nMessage: ${message}`,
     );
     window.open(`https://wa.me/12393991228?text=${text}`, '_blank', 'noopener,noreferrer');
   };
@@ -33,7 +33,7 @@ const ContactPage = () => {
             <div className="overflow-hidden rounded-[1.5rem] border border-[#efd9d2] bg-[#f9efe9] p-2">
               <img
                 src={locationPhoto}
-                alt="Customer hairstyle from Deliphine Beauty Studio"
+                alt="Customer hairstyle from Delphine Beauty Studio"
                 className="h-64 w-full rounded-[1rem] object-cover"
                 loading="lazy"
               />
@@ -66,7 +66,7 @@ const ContactPage = () => {
             href="https://www.google.com/maps/dir/?api=1&destination=J.+Lee+Salon+Suites,+24880+S+Tamiami+Trl+%231,+Bonita+Springs,+FL+34134"
             target="_blank"
             rel="noreferrer"
-            className="mt-4 inline-flex rounded-full bg-[#2b1b1d] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#4b2d2f]"
+            className="mt-4 inline-flex rounded-full bg-[#E0218A] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#E0218A]"
           >
             Get directions
           </a>
@@ -89,7 +89,7 @@ const ContactPage = () => {
             <textarea id="message" name="message" rows="5" required className="w-full rounded-xl border border-[#ead9d4] bg-white px-4 py-3 outline-none focus:border-[#c9988e]" placeholder="Tell us what you need" />
           </div>
 
-          <button type="submit" className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#2b1b1d] px-6 py-3 font-semibold text-white hover:bg-[#4b2d2f]">
+          <button type="submit" className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#E0218A] px-6 py-3 font-semibold text-white hover:bg-[#E0218A]">
             <MessageCircle size={18} />
             Send via WhatsApp
           </button>

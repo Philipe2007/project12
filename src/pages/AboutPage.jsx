@@ -8,8 +8,8 @@ const AboutPage = () => (
       <div>
         <SectionHeader
           eyebrow="About us"
-          title="A women’s salon built around comfort, beauty and trust."
-          description="Deliphine Beauty Studio is a Bonita Springs beauty studio focused on professional hair styling, quality products, comfort and customer experience."
+          title="Women, Men and Children Saloon built around a comfort, beauty and trust."
+          description="Delphine Beauty Studio is a Bonita Springs beauty studio focused on professional hair styling, quality products, comfort and customer experience."
         />
 
         <div className="mt-8 space-y-5 text-lg leading-8 text-[#4b3c3a]">

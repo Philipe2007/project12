@@ -58,7 +58,7 @@ const GalleryGrid = ({ items }) => {
                     const nextIndex = (currentIndex + 1) % items.length;
                     setSelectedImage({ item: items[nextIndex], index: nextIndex });
                   }}
-                  className="rounded-full bg-[#2b1b1d] px-4 py-2 text-sm font-semibold text-white"
+                  className="rounded-full bg-[#E0218A] px-4 py-2 text-sm font-semibold text-white"
                 >
                   Next
                 </button>

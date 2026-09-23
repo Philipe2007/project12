@@ -15,7 +15,7 @@ const ProductCard = ({ product, onAddToCart }) => (
         <button
           type="button"
           onClick={() => onAddToCart(product)}
-          className="inline-flex items-center gap-2 rounded-full bg-[#2b1b1d] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#4b2d2f]"
+          className="inline-flex items-center gap-2 rounded-full bg-[#E0218A] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#E0218A]"
         >
           <ShoppingBag size={15} />
           Add to cart

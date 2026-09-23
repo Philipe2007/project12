@@ -46,11 +46,11 @@ const ServicesPage = () => {
               </div>
 
               <div className="mt-8 flex flex-wrap gap-4">
-                <a href={squareBookingUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[#2b1b1d] px-6 py-3 font-semibold text-white hover:bg-[#4b2d2f]">
+                <a href={squareBookingUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[#E0218A] px-6 py-3 font-semibold text-white hover:bg-[#E0218A]">
                   Book this service
                   <ArrowRight size={18} />
                 </a>
-                <a href={`https://wa.me/12393991228?text=${encodeURIComponent(`Hello Deliphine Beauty Studio, I want to book the service: ${service.name}`)}`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-[#d8b7b0] bg-white px-6 py-3 font-semibold text-[#2b1b1d] hover:border-[#c99790]">
+                <a href={`https://wa.me/12393991228?text=${encodeURIComponent(`Hello Delphine Beauty Studio, I want to book the service: ${service.name}`)}`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-[#d8b7b0] bg-white px-6 py-3 font-semibold text-[#2b1b1d] hover:border-[#c99790]">
                   <MessageCircle size={18} /> WhatsApp
                 </a>
               </div>
@@ -90,15 +90,15 @@ const ServicesPage = () => {
         <>
           <SectionHeader
             eyebrow="Our services"
-            title="Choose the kind of appointment you need."
-            description="Browse Hair, Beauty, Packages or Add-ons to see every service in that category."
+            title="Choose the kind of services you need."
+            description="Browse Hair, Packages and more..."
           />
 
           <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {serviceCategoryGroups.map((group) => (
               <Link key={group.slug} to={`/services/category/${group.slug}`} className="group rounded-[1.7rem] border border-[#efd9d2] bg-white p-6 shadow-[0_18px_35px_rgba(48,34,34,0.04)] transition hover:-translate-y-1 hover:border-[#d9ada5]">
                 <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#7a4d46]">{group.name}</p>
-                <h2 className="mt-3 text-3xl font-black text-[#201918]">{group.categories.length} sections</h2>
+                
                 <p className="mt-4 text-sm leading-6 text-[#5d4540]">{group.categories.join(' · ')}</p>
                 <span className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#7a4d46]">View services <ArrowRight size={16} /></span>
               </Link>
@@ -136,7 +136,7 @@ const ServicesPage = () => {
         </div>
       </div>
 
-      <div className="mt-20 rounded-[2rem] border border-[#efd9d2] bg-[#2b1b1d] p-8 text-white">
+      <div className="mt-20 rounded-[2rem] border border-[#efd9d2] bg-[#E0218A] p-8 text-white">
         <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.24em] text-[#f0d8d1]">Book with us</p>

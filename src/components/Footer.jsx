@@ -7,7 +7,7 @@ const Footer = () => (
     <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
       <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr_0.8fr_1.2fr]">
         <div>
-          <p className="max-w-xs text-2xl font-black leading-tight text-[var(--brand-ink)]">Deliphine Beauty Studio</p>
+          <p className="max-w-xs text-2xl font-black leading-tight text-[var(--brand-ink)]">Delphine Beauty Studio</p>
           <p className="mt-4 max-w-sm text-base leading-7 text-[#564744]">
             A welcoming beauty studio in Bonita Springs offering cuts, color, styling, treatments and bridal beauty.
           </p>

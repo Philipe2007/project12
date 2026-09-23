@@ -115,8 +115,8 @@ const serviceImages = {
 };
 
 export const businessInfo = {
-  name: 'Deliphine Beauty Studio',
-  shortName: 'Deliphine',
+  name: 'Delphine Beauty Studio',
+  shortName: 'Delphine',
   phone: '+1 239-399-1228',
   whatsapp: '12393991228',
   address: 'J. Lee Salon Suites, 24880 S Tamiami Trl #1, Bonita Springs, FL 34134, United States',
@@ -139,7 +139,7 @@ export const navItems = [
 export const heroStats = [
   { value: '5-star', label: 'beauty care' },
   { value: 'Daily', label: 'appointments' },
-  { value: 'Local', label: 'Bonita Springs studio' },
+  { value: 'Local', label: 'J. Lee Salon Suites' },
   { value: 'Walk-ins', label: 'welcome when available' },
 ];
 
@@ -173,7 +173,7 @@ const createService = (name, category, duration, priceLabel = callForPricing, im
   name,
   slug: name.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
   category,
-  description: description || `${name} performed by our experienced Deliphine Beauty Studio team. Contact us to confirm availability and pricing.`,
+  description: description || `${name} performed by our experienced Delphine Beauty Studio team. Contact us to confirm availability and pricing.`,
   price: null,
   priceLabel,
   duration,

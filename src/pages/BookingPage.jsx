@@ -39,7 +39,7 @@ const BookingPage = () => {
           <div className="flex items-center gap-3">
             {[1, 2, 3, 4].map((item) => (
               <div key={item} className="flex items-center gap-2">
-                <div className={`flex h-8 w-8 items-center justify-center rounded-full text-xs font-black ${step >= item ? 'bg-[#2b1b1d] text-white' : 'border border-[#d7b8b1] bg-white text-[#7a4d46]'}`}>
+                <div className={`flex h-8 w-8 items-center justify-center rounded-full text-xs font-black ${step >= item ? 'bg-[#E0218A] text-white' : 'border border-[#d7b8b1] bg-white text-[#7a4d46]'}`}>
                   {item}
                 </div>
                 {item < 4 ? <div className="hidden h-px w-8 bg-[#d7b8b1] sm:block" /> : null}
@@ -57,7 +57,7 @@ const BookingPage = () => {
               </div>
               <h3 className="mt-5 text-3xl font-black text-[#201918]">Booking requested</h3>
               <p className="mt-3 text-lg text-[#4b3c3a]">Your request has been prepared in WhatsApp. We will confirm your appointment soon.</p>
-              <Link to="/services" className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#2b1b1d] px-6 py-3 font-semibold text-white hover:bg-[#4b2d2f]">
+              <Link to="/services" className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#E0218A] px-6 py-3 font-semibold text-white hover:bg-[#E0218A]">
                 Explore services
                 <ArrowRight size={18} />
               </Link>
@@ -103,7 +103,7 @@ const BookingPage = () => {
                         key={date}
                         type="button"
                         onClick={() => setSelectedDate(date)}
-                        className={`rounded-[1.1rem] border px-4 py-4 text-left transition ${selectedDate === date ? 'border-[#d9968b] bg-[#2b1b1d] text-white' : 'border-[#efd9d2] bg-white text-[#201918]'}`}
+                        className={`rounded-[1.1rem] border px-4 py-4 text-left transition ${selectedDate === date ? 'border-[#d9968b] bg-[#E0218A] text-white' : 'border-[#efd9d2] bg-white text-[#201918]'}`}
                       >
                         {new Date(date).toLocaleDateString('en-US', { weekday: 'short', day: 'numeric', month: 'short' })}
                       </button>
@@ -204,12 +204,12 @@ const BookingPage = () => {
 
                 <div className="flex items-center gap-3">
                   {step < 4 ? (
-                    <button type="button" onClick={nextStep} className="inline-flex items-center gap-2 rounded-full bg-[#2b1b1d] px-6 py-3 font-semibold text-white hover:bg-[#4b2d2f]">
+                    <button type="button" onClick={nextStep} className="inline-flex items-center gap-2 rounded-full bg-[#E0218A] px-6 py-3 font-semibold text-white hover:bg-[#E0218A]">
                       Next step
                       <ChevronRight size={18} />
                     </button>
                   ) : (
-                    <a href={squareBookingUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[#2b1b1d] px-6 py-3 font-semibold text-white hover:bg-[#4b2d2f]">
+                    <a href={squareBookingUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[#E0218A] px-6 py-3 font-semibold text-white hover:bg-[#E0218A]">
                       <MessageCircle size={18} />
                       Continue to Square booking
                     </a>

@@ -15,16 +15,15 @@ const HomePage = () => (
       <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-10 sm:px-6 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:px-8 lg:py-16">
         <div className="max-w-xl">
           <div className="inline-flex items-center gap-2 rounded-full border border-[var(--brand-line)] bg-white/80 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.26em] text-[var(--brand-rose-deep)]">
-            <Sparkles size={12} />
-            Bonita Springs beauty studio
-          </div>
+            <Sparkles size={12} />      Delphine Beauty studio    </div>
 
-          <h1 className="mt-6 text-4xl font-black leading-[1.05] tracking-[-0.05em] text-[var(--brand-ink)] sm:text-5xl lg:text-7xl">
-            Hair, beauty and confidence made for women.
+          <h1 className=" font-style:Blackadder mt-6 text-2xl font-black leading-[1.05] tracking-[-0.05em] text-[var(--brand-ink)] sm:text-5xl lg:text-7xl">
+Relaxing Time - Perfect look!
           </h1>
 
           <p className="mt-6 max-w-lg text-lg leading-8 text-[#4b3c3a]">
-            Expert braids, weaves, colour and bridal styling, crafted with care.
+European style (Hair, Skin Care, Hair Removal, Braiding, Eye Brows Tint) <br />
+Language Spoken: English & French
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
@@ -49,7 +48,7 @@ const HomePage = () => (
 
         <div className="relative">
           <div className="overflow-hidden rounded-[2rem] border border-[var(--brand-line)] bg-[var(--brand-sand)] p-3 shadow-[0_30px_60px_rgba(16,19,21,0.12)]">
-            <img src={locationImage} alt="Deliphine Beauty Studio salon location" className="h-[540px] w-full rounded-[1.5rem] object-cover" loading="eager" />
+            <img src={locationImage} alt="Delphine Beauty Studio salon location" className="h-[540px] w-full rounded-[1.5rem] object-cover" loading="eager" />
           </div>
 
         </div>
@@ -77,13 +76,13 @@ const HomePage = () => (
       </div>
     </section>
 
-    <section className="bg-[#2b1b1d] py-20 text-white">
+    <section className="bg-[#E0218A] py-20 text-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#f0d8d1]">Customer spotlight</p>
             <h2 className="mt-3 text-3xl font-black tracking-[-0.04em] text-white sm:text-4xl">Beautiful work, made for every customer.</h2>
-            <p className="mt-5 max-w-xl text-lg leading-8 text-[#f2e3df]">Explore real customer styles from Deliphine Beauty Studio, then visit us for your own personalized look.</p>
+            <p className="mt-5 max-w-xl text-lg leading-8 text-[#f2e3df]">Explore real customer styles from Delphine Beauty Studio, then visit us for your own personalized look.</p>
             <div className="mt-7 flex items-start gap-3 text-[#f7e8e5]">
               <MapPin size={20} className="mt-1 shrink-0 text-[#f0d8d1]" />
               <span>{businessInfo.address}</span>
@@ -119,7 +118,7 @@ const HomePage = () => (
       <SectionHeader
         eyebrow="Our customers"
         title="Real looks created for our customers."
-        description="Browse a selection of styles, color and beauty looks from the Deliphine Beauty Studio chair."
+        description="Browse a selection of styles, color and beauty looks from the Delphine Beauty Studio chair."
       />
       <div className="mt-10">
         <GalleryGrid items={galleryItems.slice(0, 6)} />
@@ -173,7 +172,7 @@ const HomePage = () => (
       </div>
     </section>
 
-    <section className="bg-[#241516] py-20 text-white">
+    <section className="bg-[#E0218A] py-20 text-white">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#f0d8d1]">Book your appointment</p>
@@ -198,7 +197,7 @@ const HomePage = () => (
           </div>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="https://wa.me/12393991228?text=Hello%20Deliphine%20Beauty%20Studio%2C%20I%20want%20to%20book%20an%20appointment." target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[#f0d8d1] px-5 py-3 font-semibold text-[#2b1b1d] hover:bg-[#e6c6c2]">
+            <a href="https://wa.me/12393991228?text=Hello%20Delphine%20Beauty%20Studio%2C%20I%20want%20to%20book%20an%20appointment." target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[#f0d8d1] px-5 py-3 font-semibold text-[#2b1b1d] hover:bg-[#e6c6c2]">
               <MessageCircle size={18} /> WhatsApp
             </a>
             <a href="tel:+12393991228" className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-3 font-semibold text-white hover:bg-white/10">

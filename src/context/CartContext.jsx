@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 
 const CartContext = createContext(null);
 
-const STORAGE_KEY = 'deliphine-cart';
+const STORAGE_KEY = 'delphine-cart';
 
 export function CartProvider({ children }) {
   const [items, setItems] = useState(() => {
