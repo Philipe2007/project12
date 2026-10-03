@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  font-family: "Segoe UI", Inter, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  background: #fffaf8;
+  color: #17191d;
+  --brand-ink: #101315;
+  --brand-ink-soft: #1b1f22;
+  --brand-rose: #d18a9a;
+  --brand-rose-deep: #b86473;
+  --brand-rose-soft: #f0dde1;
+  --brand-ivory: #f8f3f1;
+  --brand-cream: #fffaf7;
+  --brand-sand: #f2e3df;
+  --brand-line: #ebd8d3;
+  --brand-white: #ffffff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: linear-gradient(180deg, #fffaf8 0%, #f9f0ef 100%);
+  color: #17191d;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+p,
+h1,
+h2,
+h3,
+ul {
+  margin-top: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+::selection {
+  background: rgba(217, 147, 170, 0.35);
+}
