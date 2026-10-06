@@ -6,12 +6,11 @@ import ServiceCard from '../components/ServiceCard';
 import GalleryGrid from '../components/GalleryGrid';
 import locationImage from '../location/WhatsApp Image 2026-09-17 at 15.25.34.jpeg';
 import locationImage2 from '../location/WhatsApp Image 2026-09-17 at 15.25.35.jpeg';
-import video1 from '../location/WhatsApp Video 2026-09-17 at 15.25.34.mp4';
+import video1 from '../location/helovideo.mp4';
 import salonVideo from '../location/WhatsApp Video 2026-09-17 at 15.25.34.mp4';
 import { useLanguage } from '../context/LanguageContext';
 
-const heroServices = ['Hair', 'Skin Care', 'Hair Removal', 'Braiding', 'Eyebrow Tint'];
-
+const heroServices = ['Hair', 'Skin Care', 'Hair Removal', 'Eyelashs & Brow', 'VIP scalp massage'];
 const HomePage = () => {
   const { t } = useLanguage();
   return (
@@ -271,7 +270,7 @@ const HomePage = () => {
 
           <div className="mt-8 space-y-4 text-[#f7e8e5]">
             <div className="flex items-center gap-3">
-              <MapPin size={18} className="text-[#f0d8d1]" />
+              <MapPin size={18} className="text-[#f0d8d1]" />   
               <span>{businessInfo.address}</span>
             </div>
             <div className="flex items-center gap-3">

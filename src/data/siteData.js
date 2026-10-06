@@ -216,6 +216,7 @@ export const services = [
   createService('Boho Braids', 'Braids & Protective Styles', 'Variable', 'Variable'),
   createService('Sew-In / Sewing', 'Braids & Protective Styles', 'Variable', '$200'),
 
+  createService('keratin Treatment', 'Keratin, Relaxer & Perm', '60-90 min', '$229'),
   createService('Relaxer', 'Keratin, Relaxer & Perm', '60-90 min', '$94'),
   createService('Texturizer', 'Keratin, Relaxer & Perm', '60-90 min', '$94'),
   createService('Perm', 'Keratin, Relaxer & Perm', '90-120 min', '$150'),
@@ -383,16 +384,19 @@ export const products = [
   },
 ];
 
-export const galleryItems = [
-  { id: 1, title: '',  image: salonImages.boxBraids },
-  { id: 2, title: '',  image: salonImages.deepWave },
-  { id: 3, title: '',  image: salonImages.occasion_updo },
-  { id: 4, title: '',  image: salonImages.color },
-  { id: 5, title: '',  image: salonImages.naturalHair },
-  { id: 6, title: '',  image: salonImages.deepWave },
-  { id: 7, title: '',  image: salonImages.cornrows },
-  { id: 8, title: '',  image: salonImages.weave },
-];
+const galleryImageUrls = Object.entries(import.meta.glob('../gallery/*.{jpg,jpeg,png,webp}', {
+  eager: true,
+  import: 'default',
+  query: '?url',
+}))
+  .sort(([firstPath], [secondPath]) => firstPath.localeCompare(secondPath, undefined, { numeric: true }))
+  .map(([, image]) => image);
+
+export const galleryItems = galleryImageUrls.map((image, index) => ({
+  id: index + 1,
+  title: '',
+  image,
+}));
 
 export const reasons = [
   {
