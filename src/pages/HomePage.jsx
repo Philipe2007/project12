@@ -16,7 +16,12 @@ const HomePage = () => {
   return (
   <>
     {/* ============================ HERO ============================ */}
-<section className="relative isolate flex min-h-[88svh] flex-col overflow-hidden bg-[#1a0f14] text-white lg:min-h-[92svh]">
+
+
+
+
+
+<section className="relative isolate flex min-h-[580px] flex-col overflow-hidden bg-[#1a0f14] text-white sm:min-h-[80svh] lg:min-h-[88svh]">
 
   {/* Background video */}
   <video
@@ -30,101 +35,103 @@ const HomePage = () => {
     aria-hidden="true"
   />
 
-  {/* Overlays: keep text readable */}
-  <div className="absolute inset-0 z-10 bg-gradient-to-r from-black/80 via-black/55 to-black/25" />
-  <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/75 via-transparent to-black/40" />
-  <div className="absolute inset-0 z-10 bg-[radial-gradient(circle_at_15%_20%,rgba(224,33,138,0.28),transparent_45%)]" />
+  {/* One even overlay + a little extra at the bottom */}
+  <div className="absolute inset-0 z-10 bg-black/45" />
+  <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
-  {/* Main content */}
-  <div className="relative z-20 mx-auto flex w-full max-w-7xl flex-1 items-center px-4 pb-10 pt-24 sm:px-6 lg:px-8 lg:pt-28">
+  {/* Content */}
+  <div className="relative z-20 mx-auto flex w-full max-w-7xl flex-1 items-end px-5 pb-10 pt-24 sm:px-8 lg:items-center lg:pb-14">
+    <div className="max-w-xl">
 
-    <div className="max-w-2xl">
-
-      <p className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-md">
-        <Sparkles size={14} className="text-[#ff8cc6]" />
+      <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#ff8cc6]">
         Delphine Beauty Studio
       </p>
 
       <h1
-        className="mt-6 text-[2.6rem] font-semibold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-7xl"
-        style={{
-          fontFamily: '"Playfair Display", Georgia, "Times New Roman", serif',
-        }}
+        className="mt-3 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl"
+        style={{ fontFamily: '"Playfair Display", Georgia, "Times New Roman", serif' }}
       >
         {t('Relaxing time.')}
-        <br />
-        {t('Perfect look.')}
+        <span
+          className="block text-4xl font-normal text-[#ff8cc6] sm:text-5xl lg:text-6xl"
+          style={{ fontFamily: '"Allura", "Great Vibes", cursive' }}
+        >
+          {t('Perfect look.')}
+        </span>
       </h1>
 
-      <p className="mt-6 max-w-xl text-base leading-8 text-white/85 sm:text-sm">
+      <p className="mt-4 max-w-md text-sm leading-6 text-white/85 sm:text-base sm:leading-7">
         {t('European-style beauty care in a calm, welcoming studio, designed around your comfort and confidence.')}
       </p>
 
+      {/* Service chips */}
       <ul
-        className="mt-6 flex flex-wrap gap-2"
+        className="mt-4 flex flex-wrap gap-2"
         aria-label={t('Our main services')}
       >
         {heroServices.map((item) => (
           <li
             key={item}
-            className="rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-sm font-medium text-white backdrop-blur-md"
+            className="rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs font-medium text-white backdrop-blur-md sm:text-sm"
           >
             {t(item)}
           </li>
         ))}
       </ul>
 
-      <p className="mt-4 text-sm text-white/70">
-        {t('We speak English and French.')}
-      </p>
-
-      <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
-
+      {/* Actions */}
+      <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
         <a
           href={squareBookingUrl}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center justify-center gap-2 rounded-full bg-[#E0218A] px-8 py-4 font-semibold text-white shadow-[0_14px_34px_rgba(224,33,138,0.45)] transition hover:-translate-y-0.5 hover:bg-[#c21a76] focus:outline-none focus-visible:ring-4 focus-visible:ring-white/50"
+          className="inline-flex items-center gap-2 rounded-full bg-[#E0218A] px-6 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-lg shadow-[#E0218A]/30 transition hover:bg-[#c21a76] focus:outline-none focus-visible:ring-4 focus-visible:ring-white/50"
         >
           {t('Book now')}
-          <ArrowRight size={18} />
+          <ArrowRight size={15} />
         </a>
 
         <Link
           to="/services"
-          className="inline-flex items-center justify-center gap-2 rounded-full border border-white/40 bg-white/10 px-8 py-4 font-semibold text-white backdrop-blur-md transition hover:bg-white hover:text-[#1a0f14] focus:outline-none focus-visible:ring-4 focus-visible:ring-white/50"
+          className="border-b border-white pb-0.5 text-sm font-medium text-white transition hover:border-[#ff8cc6] hover:text-[#ff8cc6] focus:outline-none focus-visible:ring-4 focus-visible:ring-white/50"
         >
           {t('View services')}
         </Link>
-
       </div>
 
+      {/* Social proof row */}
+      <div className="mt-5 flex items-center gap-2 text-xs text-white/80">
+        <span className="flex gap-0.5 text-[#ff8cc6]" aria-hidden="true">
+          {[...Array(5)].map((_, i) => (
+            <Star key={i} size={12} fill="currentColor" />
+          ))}
+        </span>
+        <span>4.9 · 70 Google reviews</span>
+      </div>
+
+      <p className="mt-2 text-[11px] text-white/60">
+        {t('We speak English and French.')}
+      </p>
     </div>
   </div>
 
-  {/* Stats bar */}
-  <div className="relative z-20 mx-auto w-full max-w-7xl px-4 pb-6 sm:px-6 lg:px-8">
-    <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/20 bg-white/20 backdrop-blur-xl lg:grid-cols-4">
-
-      {heroStats.map((item) => (
-        <div
-          key={item.label}
-          className="bg-black/40 px-4 py-4 sm:px-5"
-        >
-          <p className="text-xl font-bold text-white sm:text-2xl">
-            {t(item.value)}
-          </p>
-
-          <p className="mt-1 text-xs text-[#ffb3d9]">
-            {t(item.label)}
-          </p>
+  {/* Stats strip: desktop and tablet only */}
+  <div className="relative z-20 mx-auto hidden w-full max-w-7xl px-5 pb-5 sm:block sm:px-8">
+    <dl className="grid grid-cols-2 divide-x divide-white/20 border-t border-white/20 pt-4 lg:grid-cols-4">
+      {heroStats.map((item, i) => (
+        <div key={item.label} className={i === 0 ? 'pr-4' : 'px-4'}>
+          <dt className="sr-only">{t(item.label)}</dt>
+          <dd className="text-lg font-semibold">{t(item.value)}</dd>
+          <p className="text-[11px] text-white/60" aria-hidden="true">{t(item.label)}</p>
         </div>
       ))}
-
-    </div>
+    </dl>
   </div>
 
 </section>
+
+
+
     {/* ============================ SERVICES ============================ */}
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
       <SectionHeader
