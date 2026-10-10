@@ -19,9 +19,7 @@ const HomePage = () => {
 
 
 
-
-
-<section className="relative isolate flex min-h-[580px] flex-col overflow-hidden bg-[#1a0f14] text-white sm:min-h-[80svh] lg:min-h-[88svh]">
+<section className="relative isolate flex min-h-[540px] flex-col overflow-hidden bg-[#1a0f14] text-white sm:min-h-[80svh] lg:min-h-[88svh]">
 
   {/* Background video */}
   <video
@@ -39,8 +37,8 @@ const HomePage = () => {
   <div className="absolute inset-0 z-10 bg-black/45" />
   <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
-  {/* Content */}
-  <div className="relative z-20 mx-auto flex w-full max-w-7xl flex-1 items-end px-5 pb-10 pt-24 sm:px-8 lg:items-center lg:pb-14">
+  {/* Content (vertically centered) */}
+  <div className="relative z-20 mx-auto flex w-full max-w-7xl flex-1 items-center px-5 py-20 sm:px-8">
     <div className="max-w-xl">
 
       <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#ff8cc6]">
@@ -60,20 +58,18 @@ const HomePage = () => {
         </span>
       </h1>
 
-      <p className="mt-4 max-w-md text-sm leading-6 text-white/85 sm:text-base sm:leading-7">
-        {t('European-style beauty care in a calm, welcoming studio, designed around your comfort and confidence.')}
-      </p>
-
-      {/* Service chips */}
+      {/* Services separated with | (no background) */}
       <ul
-        className="mt-4 flex flex-wrap gap-2"
+        className="mt-5 flex flex-wrap items-center gap-y-1 text-xs font-medium text-white/90 sm:text-sm"
         aria-label={t('Our main services')}
       >
-        {heroServices.map((item) => (
-          <li
-            key={item}
-            className="rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs font-medium text-white backdrop-blur-md sm:text-sm"
-          >
+        {heroServices.map((item, i) => (
+          <li key={item} className="flex items-center">
+            {i > 0 && (
+              <span className="mx-3 text-white/40" aria-hidden="true">
+                |
+              </span>
+            )}
             {t(item)}
           </li>
         ))}
@@ -129,7 +125,6 @@ const HomePage = () => {
   </div>
 
 </section>
-
 
 
     {/* ============================ SERVICES ============================ */}
