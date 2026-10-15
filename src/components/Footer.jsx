@@ -51,7 +51,7 @@ const Footer = () => {
         <div>
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-[var(--brand-rose-deep)]">{t('Follow us')}</p>
           <div className="mt-4 flex flex-wrap gap-3">
-            <a href="https://instagram.com" target="_blank" rel="noreferrer" className="rounded-full border border-[var(--brand-line)] bg-white px-4 py-2 text-sm font-semibold text-[var(--brand-ink)] transition hover:border-[var(--brand-rose)] hover:text-[var(--brand-rose-deep)]">Instagram</a>
+            <a href="https://www.instagram.com/delphine_beauty_studio/" target="_blank" rel="noreferrer" className="rounded-full border border-[var(--brand-line)] bg-white px-4 py-2 text-sm font-semibold text-[var(--brand-ink)] transition hover:border-[var(--brand-rose)] hover:text-[var(--brand-rose-deep)]">Instagram</a>
             <a href="https://facebook.com" target="_blank" rel="noreferrer" className="rounded-full border border-[var(--brand-line)] bg-white px-4 py-2 text-sm font-semibold text-[var(--brand-ink)] transition hover:border-[var(--brand-rose)] hover:text-[var(--brand-rose-deep)]">Facebook</a>
             <a href="https://wa.me/12393991228" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-[var(--brand-line)] bg-white px-4 py-2 text-sm font-semibold text-[var(--brand-ink)] transition hover:border-[var(--brand-rose)] hover:text-[var(--brand-rose-deep)]">
               <MessageCircle size={15} />
