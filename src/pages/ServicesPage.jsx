@@ -1,7 +1,9 @@
 import { useCallback, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, Navigate, useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { ArrowRight, CheckCircle2, Clock3, MessageCircle, ShieldCheck } from 'lucide-react';
-import { serviceCategoryGroups, services, formatServicePrice, squareBookingUrl } from '../data/siteData';
+import { businessInfo, serviceCategoryGroups, services, formatServicePrice, squareBookingUrl } from '../data/siteData';
+import { SITE_NAME, SITE_URL } from '../seoConfig';
 import SectionHeader from '../components/SectionHeader';
 import ServiceCard from '../components/ServiceCard';
 import ServiceCategoryModal, { getGroupCover, groupInfo } from './ServiceCategoryModal';
@@ -20,8 +22,15 @@ const ServicesPage = () => {
   );
   const clearSelection = useCallback(() => setSelectedIds([]), []);
 
-  const service = translateService(services.find((item) => item.slug === slug) || services[0]);
-  const selectedGroup = serviceCategoryGroups.find((group) => group.slug === categorySlug);
+  const rawService = slug ? services.find((item) => item.slug === slug) : null;
+  const selectedGroup = categorySlug ? serviceCategoryGroups.find((group) => group.slug === categorySlug) : null;
+
+  // Unknown service or category URLs used to show the first service (a duplicate page).
+  // Send them to the main services page instead.
+  if (slug && !rawService) return <Navigate to="/services" replace />;
+  if (categorySlug && !selectedGroup) return <Navigate to="/services" replace />;
+
+  const service = rawService ? translateService(rawService) : null;
   const visibleCategories = selectedGroup?.categories || [];
   const groupedServices = visibleCategories.map((category) => ({
     category,
@@ -29,9 +38,62 @@ const ServicesPage = () => {
   })).filter((group) => group.items.length > 0);
   const openGroup = serviceCategoryGroups.find((group) => group.slug === openGroupSlug);
 
+  // Related services: same category first, never the current service.
+  const relatedServices = rawService
+    ? [
+        ...services.filter((item) => item.category === rawService.category && item.id !== rawService.id),
+        ...services.filter((item) => item.category !== rawService.category),
+      ].slice(0, 3)
+    : services.slice(0, 3);
+
+  // Structured data for service pages (Service + breadcrumb)
+  const priceMatch = rawService ? /^\$(\d+(?:\.\d+)?)$/.exec(rawService.priceLabel || '') : null;
+  const serviceUrl = rawService ? `${SITE_URL}/services/${rawService.slug}` : null;
+  const serviceSchema = rawService
+    ? {
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'Service',
+            name: rawService.name,
+            description: rawService.description,
+            serviceType: rawService.category,
+            url: serviceUrl,
+            areaServed: { '@type': 'City', name: businessInfo.city },
+            provider: { '@type': 'HairSalon', name: SITE_NAME, url: `${SITE_URL}/` },
+            ...(priceMatch
+              ? { offers: { '@type': 'Offer', price: priceMatch[1], priceCurrency: 'USD', url: serviceUrl } }
+              : {}),
+          },
+          {
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+              { '@type': 'ListItem', position: 2, name: 'Services', item: `${SITE_URL}/services` },
+              { '@type': 'ListItem', position: 3, name: rawService.name, item: serviceUrl },
+            ],
+          },
+        ],
+      }
+    : null;
+
+  // Open the category popup on a normal click, but keep the card a real link
+  // (crawlable, and "open in new tab" still works).
+  const handleGroupClick = (event, groupSlug) => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+    event.preventDefault();
+    setOpenGroupSlug(groupSlug);
+  };
+
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      {slug ? (
+      {serviceSchema && (
+        <Helmet>
+          <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
+        </Helmet>
+      )}
+
+      {service ? (
         <>
           <div className="mx-auto max-w-3xl">
             <div>
@@ -62,7 +124,7 @@ const ServicesPage = () => {
                   {t('Book this service')}
                   <ArrowRight size={18} />
                 </a>
-                <a href={`https://wa.me/12393991228?text=${encodeURIComponent(language === 'fr' ? `Bonjour Delphine Beauty Studio, je souhaite réserver la prestation : ${service.name}` : `Hello Delphine Beauty Studio, I want to book the service: ${service.name}`)}`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-[#d8b7b0] bg-white px-6 py-3 font-semibold text-[#2b1b1d] hover:border-[#c99790]">
+                <a href={`https://wa.me/${businessInfo.whatsapp}?text=${encodeURIComponent(language === 'fr' ? `Bonjour Delphine Beauty Studio, je souhaite réserver la prestation : ${service.name}` : `Hello Delphine Beauty Studio, I want to book the service: ${service.name}`)}`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-[#d8b7b0] bg-white px-6 py-3 font-semibold text-[#2b1b1d] hover:border-[#c99790]">
                   <MessageCircle size={18} /> WhatsApp
                 </a>
               </div>
@@ -72,10 +134,20 @@ const ServicesPage = () => {
                 <li className="flex items-center gap-3"><CheckCircle2 size={18} className="text-[#7a4d46]" /> {t('Booking online guarantees your slot')}</li>
                 <li className="flex items-center gap-3"><CheckCircle2 size={18} className="text-[#7a4d46]" /> {t('Call us to confirm availability and payment options')}</li>
               </ul>
+
+              <p className="mt-8 text-sm text-[#5d4540]">
+                {SITE_NAME} · {businessInfo.address}
+                {' · '}
+                <a href={`tel:+${businessInfo.whatsapp}`} className="font-semibold text-[#7a4d46] underline">{businessInfo.phone}</a>
+              </p>
+
+              <p className="mt-4 text-sm">
+                <Link to="/services" className="font-semibold text-[#7a4d46] underline">{t('All services')}</Link>
+              </p>
             </div>
           </div>
         </>
-      ) : categorySlug && selectedGroup ? (
+      ) : selectedGroup ? (
         <>
           <SectionHeader
             eyebrow="Service category"
@@ -113,10 +185,10 @@ const ServicesPage = () => {
               const extra = group.categories.length - preview.length;
 
               return (
-                <button
+                <Link
                   key={group.slug}
-                  type="button"
-                  onClick={() => setOpenGroupSlug(group.slug)}
+                  to={`/services/category/${group.slug}`}
+                  onClick={(event) => handleGroupClick(event, group.slug)}
                   aria-haspopup="dialog"
                   className="group flex flex-col overflow-hidden rounded-[1.7rem] border border-[#efd9d2] bg-white text-left shadow-[0_18px_35px_rgba(48,34,34,0.05)] transition hover:-translate-y-1 hover:border-[#E0218A]/50 hover:shadow-[0_24px_45px_rgba(224,33,138,0.12)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#E0218A]/30"
                 >
@@ -143,10 +215,38 @@ const ServicesPage = () => {
                       {t('View & book')} <ArrowRight size={16} className="transition group-hover:translate-x-1" />
                     </span>
                   </div>
-                </button>
+                </Link>
               );
             })}
           </div>
+
+          {/* Full menu: real text links to every service page, with prices (good for Google) */}
+          <section className="mt-16" aria-labelledby="full-service-menu">
+            <h2 id="full-service-menu" className="text-2xl font-black tracking-[-0.03em] text-[#201918]">
+              {t('Full service menu')}
+            </h2>
+            <div className="mt-6 grid gap-8 md:grid-cols-2">
+              {serviceCategoryGroups.map((group) => (
+                <div key={group.slug}>
+                  <h3 className="text-sm font-black uppercase tracking-[0.22em] text-[#7a4d46]">
+                    <Link to={`/services/category/${group.slug}`} className="hover:text-[#E0218A]">{t(group.name)}</Link>
+                  </h3>
+                  <ul className="mt-3 divide-y divide-[#efdad5] rounded-[1.25rem] border border-[#efd9d2] bg-white px-4">
+                    {services
+                      .filter((item) => group.categories.includes(item.category))
+                      .map((item) => (
+                        <li key={item.id} className="flex items-baseline justify-between gap-4 py-2.5 text-sm">
+                          <Link to={`/services/${item.slug}`} className="font-medium text-[#2b1b1d] hover:text-[#E0218A]">
+                            {translateService(item).name}
+                          </Link>
+                          <span className="shrink-0 font-semibold text-[#7a4d46]">{formatServicePrice(item)}</span>
+                        </li>
+                      ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </section>
         </>
       )}
 
@@ -166,7 +266,7 @@ const ServicesPage = () => {
       <div className="mt-20">
         <SectionHeader eyebrow="Related services" title="More beauty options for your next visit." />
         <div className="mt-8 grid gap-6 md:grid-cols-3">
-          {services.slice(0, 3).map((item) => (
+          {relatedServices.map((item) => (
             <div key={item.id} className="rounded-[1.7rem] border border-[#efd9d2] bg-white p-5 shadow-[0_18px_35px_rgba(48,34,34,0.04)]">
               <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#7a4d46]">{t(item.category)}</p>
                 <h3 className="mt-2 text-xl font-black text-[#201918]">{translateService(item).name}</h3>

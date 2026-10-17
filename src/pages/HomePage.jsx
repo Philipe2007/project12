@@ -1,4 +1,4 @@
-import { ArrowRight, Clock3, MapPin, MessageCircle, Phone, ShieldCheck, Sparkles, Star } from 'lucide-react';
+import { ArrowRight, ChevronDown, Clock3, MapPin, MessageCircle, Phone, ShieldCheck, Sparkles, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { businessInfo, galleryItems, heroStats, reasons, services, squareBookingUrl, testimonials } from '../data/siteData';
 import SectionHeader from '../components/SectionHeader';
@@ -13,6 +13,37 @@ import { useLanguage } from '../context/LanguageContext';
 const heroServices = ['Hair', 'Skin Care', 'Hair Removal', 'Eyelashs & Brow', 'VIP scalp massage'];
 const HomePage = () => {
   const { t } = useLanguage();
+
+  const whatsappUrl = `https://wa.me/${businessInfo.whatsapp}?text=Hello%20Delphine%20Beauty%20Studio%2C%20I%20want%20to%20book%20an%20appointment.`;
+  const telUrl = `tel:+${businessInfo.whatsapp}`;
+
+  const faqs = [
+    {
+      question: t('Where is Delphine Beauty Studio located?'),
+      answer: `${t('We are at')} ${businessInfo.address}.`,
+    },
+    {
+      question: t('How do I book an appointment?'),
+      answer: `${t('Book online, message us on WhatsApp or call')} ${businessInfo.phone}.`,
+    },
+    {
+      question: t('Do you accept walk-ins?'),
+      answer: t('Walk-ins are welcome when space allows. Booking online guarantees your slot.'),
+    },
+    {
+      question: t('Do you speak French?'),
+      answer: t('Yes, we speak English and French.'),
+    },
+    {
+      question: t('What services do you offer?'),
+      answer: t('Haircuts and styling, hair color, highlights and balayage, braids and protective styles, keratin, relaxer and perm, treatments, facials, eyebrow tint and waxing.'),
+    },
+    {
+      question: t('How much do your services cost?'),
+      answer: t('Prices are listed on each service page. Call or WhatsApp us to confirm pricing and availability.'),
+    },
+  ];
+
   return (
   <>
     {/* ============================ HERO ============================ */}
@@ -21,10 +52,11 @@ const HomePage = () => {
 
 <section className="relative isolate flex min-h-[540px] flex-col overflow-hidden bg-[#1a0f14] text-white sm:min-h-[80svh] lg:min-h-[88svh]">
 
-  {/* Background video */}
+  {/* Background video (poster shows instantly while the video loads) */}
   <video
     className="absolute inset-0 z-0 h-full w-full object-cover object-[60%_center] motion-reduce:hidden sm:object-center"
     src={video1}
+    poster={locationImage}
     autoPlay
     muted
     loop
@@ -42,13 +74,14 @@ const HomePage = () => {
     <div className="max-w-xl">
 
       <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#ff8cc6]">
-        Delphine Beauty Studio
+        Delphine Beauty Studio · Bonita Springs, FL
       </p>
 
       <h1
         className="mt-3 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl"
         style={{ fontFamily: '"Playfair Display", Georgia, "Times New Roman", serif' }}
       >
+        <span className="sr-only">{t('Hair salon in Bonita Springs, FL')}: </span>
         {t('Relaxing time.')}
         <span
           className="block text-4xl font-normal text-[#ff8cc6] sm:text-5xl lg:text-6xl"
@@ -181,6 +214,17 @@ const HomePage = () => {
               <MapPin size={20} className="mt-1 shrink-0 text-[var(--brand-rose-deep)]" />
               <span>{businessInfo.address}</span>
             </div>
+            <p className="mt-3 max-w-xl text-sm leading-7 text-[#4b3c3a]">
+              {t('Located on S Tamiami Trl (US-41) in Bonita Springs, serving clients from Estero, Naples and Fort Myers.')}
+            </p>
+            <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm font-semibold">
+              <a href={businessInfo.mapsUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-[var(--brand-rose-deep)] underline">
+                {t('Get directions')} <ArrowRight size={16} />
+              </a>
+              <a href={telUrl} className="inline-flex items-center gap-2 text-[var(--brand-ink)]">
+                <Phone size={16} /> {businessInfo.phone}
+              </a>
+            </div>
           </div>
           <div className="overflow-hidden rounded-[1.7rem] border border-[var(--brand-line)] bg-white p-2 shadow-[0_25px_60px_rgba(16,19,21,0.08)]">
             <video
@@ -260,6 +304,24 @@ const HomePage = () => {
       </div>
     </section>
 
+    {/* ============================ FAQ ============================ */}
+    <section className="mx-auto max-w-3xl px-4 pb-20 sm:px-6 lg:px-8" aria-labelledby="home-faq">
+      <h2 id="home-faq" className="text-3xl font-black tracking-[-0.04em] text-[#201918] sm:text-4xl">
+        {t('Frequently asked questions')}
+      </h2>
+      <div className="mt-8 divide-y divide-[#efdad5] rounded-[1.5rem] border border-[#efd9d2] bg-white">
+        {faqs.map((item) => (
+          <details key={item.question} className="group px-6 py-4">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-bold text-[#2b1b1d] [&::-webkit-details-marker]:hidden">
+              {item.question}
+              <ChevronDown size={18} className="shrink-0 text-[#7a4d46] transition group-open:rotate-180" />
+            </summary>
+            <p className="mt-3 text-base leading-7 text-[#4b3c3a]">{item.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
     {/* ============================ BOOKING ============================ */}
     <section className="bg-[#E0218A] py-20 text-white">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
@@ -277,19 +339,19 @@ const HomePage = () => {
             </div>
             <div className="flex items-center gap-3">
               <Phone size={18} className="text-[#f0d8d1]" />
-              <span>{businessInfo.phone}</span>
+              <a href={telUrl}>{businessInfo.phone}</a>
             </div>
             <div className="flex items-center gap-3">
               <Clock3 size={18} className="text-[#f0d8d1]" />
-              <span>{businessInfo.openingHours.weekdays} · {businessInfo.openingHours.sunday}</span>
+              <span>{businessInfo.openingHours.weekdays}</span>
             </div>
           </div>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="https://wa.me/12393991228?text=Hello%20Delphine%20Beauty%20Studio%2C%20I%20want%20to%20book%20an%20appointment." target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[#f0d8d1] px-5 py-3 font-semibold text-[#2b1b1d] hover:bg-[#e6c6c2]">
+            <a href={whatsappUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[#f0d8d1] px-5 py-3 font-semibold text-[#2b1b1d] hover:bg-[#e6c6c2]">
               <MessageCircle size={18} /> WhatsApp
             </a>
-            <a href="tel:+12393991228" className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-3 font-semibold text-white hover:bg-white/10">
+            <a href={telUrl} className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-3 font-semibold text-white hover:bg-white/10">
               {t('Call now')}
             </a>
           </div>
@@ -303,7 +365,7 @@ const HomePage = () => {
             </div>
             <div>
               <p className="text-sm font-semibold text-[#f7e8e5]">{t('Availability')}</p>
-              <p className="mt-2 text-sm text-[#f0d8d1]">{t('Open Tuesday–Sunday')}</p>
+              <p className="mt-2 text-sm text-[#f0d8d1]">{businessInfo.openingHours.weekdays}</p>
             </div>
           </div>
           <a href={squareBookingUrl} target="_blank" rel="noreferrer" className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#f0d8d1] px-6 py-3 font-semibold text-[#2b1b1d] transition hover:bg-[#e6c6c2]">

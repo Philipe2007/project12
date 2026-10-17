@@ -121,12 +121,20 @@ export const serviceCategoryCoverImages = {
   'add-ons': serviceImages.deep_condtion,
 };
 
+const salonAddress = 'J. Lee Salon Suites, 24880 S Tamiami Trl #1, Bonita Springs, FL 34134, United States';
+
 export const businessInfo = {
   name: 'Delphine Beauty Studio',
   shortName: 'Delphine',
   phone: '+1 239-399-1228',
   whatsapp: '12393991228',
-  address: 'J. Lee Salon Suites, 24880 S Tamiami Trl #1, Bonita Springs, FL 34134, United States',
+  streetAddress: '24880 S Tamiami Trl #1',
+  city: 'Bonita Springs',
+  region: 'FL',
+  postalCode: '34134',
+  address: salonAddress,
+  mapsUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`Delphine Beauty Studio, ${salonAddress}`)}`,
+  // TODO: confirm these hours. They must match your Google Business Profile exactly.
   openingHours: {
     weekdays: 'Open daily · Closes at 5:00 PM',
     sunday: 'Open daily · Closes at 5:00 PM',
@@ -175,12 +183,18 @@ export const serviceCategoryGroups = [
   },
 ];
 
+// Each service gets its own page, so every service should have a unique description.
+// Services without a custom description get a generated one that includes name, category and time.
 const createService = (name, category, duration, priceLabel = callForPricing, image = null, description = '') => ({
   id: name.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
   name,
   slug: name.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
   category,
-  description: description || `${name} performed by our experienced Delphine Beauty Studio team. Contact us to confirm availability and pricing.`,
+  description:
+    description ||
+    `${name} at Delphine Beauty Studio in Bonita Springs, FL (${category}).${
+      duration && duration !== 'Variable' ? ` Typical appointment time: ${duration}.` : ''
+    } Book online or call ${businessInfo.phone} to confirm availability and pricing.`,
   price: null,
   priceLabel,
   duration,
@@ -190,45 +204,70 @@ const createService = (name, category, duration, priceLabel = callForPricing, im
 });
 
 export const services = [
-  createService("Ladies' Signature Haircut", 'Haircuts & Styling', '45-60 min', '$40'),
-  createService("Gentlemen's Cut", 'Haircuts & Styling', '30-45 min', '$40'),
-  createService('Classic Blowout', 'Haircuts & Styling', '30-45 min', '$40'),
-  createService('Silk Press', 'Haircuts & Styling', '45-60 min', '$83'),
-  createService('Special Occasion Updo', 'Haircuts & Styling', '45-60 min', '$54'),
+  createService("Ladies' Signature Haircut", 'Haircuts & Styling', '45-60 min', '$40', null,
+    "A women's haircut tailored to your face shape, hair type and daily routine."),
+  createService("Gentlemen's Cut", 'Haircuts & Styling', '30-45 min', '$40', null,
+    "A precise men's haircut, from classic styles to short fades."),
+  createService('Classic Blowout', 'Haircuts & Styling', '30-45 min', '$40', null,
+    'A smooth, polished blow-dry that adds shine and body for everyday wear or a special event.'),
+  createService('Silk Press', 'Haircuts & Styling', '45-60 min', '$83', null,
+    'A silk press that straightens natural and textured hair for a sleek, smooth, shiny finish without a chemical relaxer.'),
+  createService('Special Occasion Updo', 'Haircuts & Styling', '45-60 min', '$54', null,
+    'An elegant updo styled for weddings, proms, parties and other special occasions.'),
 
-  createService('Root Touch-Up', 'Hair Color', '60-90 min', '$93'),
-  createService('Root Touch-Up + Gloss', 'Hair Color', '90-120 min', '$185'),
+  createService('Root Touch-Up', 'Hair Color', '60-90 min', '$93', null,
+    'Color applied at the roots to cover regrowth and keep your color looking fresh between full color services.'),
+  createService('Root Touch-Up + Gloss', 'Hair Color', '90-120 min', '$185', null,
+    'Root coverage plus a gloss to refresh your tone and add shine.'),
   createService('Express Color', 'Hair Color', '60-90 min', '$103'),
-  createService('Gray Blending / Color Camo', 'Hair Color', '30-60 min', '$49'),
+  createService('Gray Blending / Color Camo', 'Hair Color', '30-60 min', '$49', null,
+    'A subtle way to blend gray hair into your natural color without a full color commitment.'),
 
-  createService('Partial Foil', 'Highlights & Balayage', '60-90 min', '$104'),
-  createService('Full Foil', 'Highlights & Balayage', '90-120 min', '$140'),
-  createService('Partial Balayage', 'Highlights & Balayage', '60-90 min', '$112'),
-  createService('Full Balayage', 'Highlights & Balayage', '90-120 min', '$149'),
+  createService('Partial Foil', 'Highlights & Balayage', '60-90 min', '$104', null,
+    'Foil highlights placed around the top and face-framing sections for added brightness and dimension.'),
+  createService('Full Foil', 'Highlights & Balayage', '90-120 min', '$140', null,
+    'Foil highlights placed throughout the whole head for lighter, multi-dimensional color.'),
+  createService('Partial Balayage', 'Highlights & Balayage', '60-90 min', '$112', null,
+    'Hand-painted balayage on selected sections for a soft, natural, sun-lightened effect.'),
+  createService('Full Balayage', 'Highlights & Balayage', '90-120 min', '$149', null,
+    'Hand-painted balayage throughout the head for a soft, blended, natural-looking lightness.'),
   createService('Specialty Highlights', 'Highlights & Balayage', '90-120 min', '$166'),
   createService('Platinum Card Highlights', 'Highlights & Balayage', '120-180 min', '$220'),
-  createService('Face-Framing / Accent Foil', 'Highlights & Balayage', '45-60 min', '$92'),
+  createService('Face-Framing / Accent Foil', 'Highlights & Balayage', '45-60 min', '$92', null,
+    'Brightening foil highlights around the face for a fresh, flattering look.'),
 
-  createService('Knotless Braids', 'Braids & Protective Styles', 'Variable', 'Variable'),
-  createService('Box Braids', 'Braids & Protective Styles', 'Variable', 'Variable'),
-  createService('Cornrows', 'Braids & Protective Styles', '45-60 min', '$65'),
+  createService('Knotless Braids', 'Braids & Protective Styles', 'Variable', 'Variable', null,
+    'Knotless braids that start flat at the root for a lighter, more natural feel, installed neatly and styled to your preference.'),
+  createService('Box Braids', 'Braids & Protective Styles', 'Variable', 'Variable', null,
+    'Classic box braids, a long-lasting protective style, parted and braided neatly.'),
+  createService('Cornrows', 'Braids & Protective Styles', '45-60 min', '$65', null,
+    'Neat, classic cornrow braiding, styled to your preferences.'),
   createService('Crochet', 'Braids & Protective Styles', 'Variable', 'Variable'),
   createService('Boho Braids', 'Braids & Protective Styles', 'Variable', 'Variable'),
-  createService('Sew-In / Sewing', 'Braids & Protective Styles', 'Variable', '$200'),
+  createService('Sew-In / Sewing', 'Braids & Protective Styles', 'Variable', '$200', null,
+    'A sew-in weave installed over braided hair for added length and volume.'),
 
-  createService('keratin Treatment', 'Keratin, Relaxer & Perm', '60-90 min', '$229'),
-  createService('Relaxer', 'Keratin, Relaxer & Perm', '60-90 min', '$94'),
+  createService('Keratin Treatment', 'Keratin, Relaxer & Perm', '60-90 min', '$229', null,
+    'A smoothing keratin treatment that reduces frizz and makes hair easier to style.'),
+  createService('Relaxer', 'Keratin, Relaxer & Perm', '60-90 min', '$94', null,
+    'A relaxer service to straighten curly and coily hair for a smooth, sleek result.'),
   createService('Texturizer', 'Keratin, Relaxer & Perm', '60-90 min', '$94'),
   createService('Perm', 'Keratin, Relaxer & Perm', '90-120 min', '$150'),
   createService('Specialty Perm', 'Keratin, Relaxer & Perm', '120-150 min', '$195'),
 
-  createService('Deep Conditioning Treatment', 'Treatments', '30-45 min', '$45'),
-  createService('Olaplex Treatment', 'Treatments', '30-45 min', '$40'),
-  createService('Anti-Stress Scalp Massage', 'Treatments', '30-45 min', '$40'),
+  createService('Deep Conditioning Treatment', 'Treatments', '30-45 min', '$45', null,
+    'A moisture-rich deep conditioning treatment to soften and revive dry or stressed hair.'),
+  createService('Olaplex Treatment', 'Treatments', '30-45 min', '$40', null,
+    'An Olaplex treatment to help strengthen and protect hair, especially after color or chemical services.'),
+  createService('Anti-Stress Scalp Massage', 'Treatments', '30-45 min', '$40', null,
+    'A relaxing scalp massage to ease tension and leave you feeling refreshed.'),
 
-  createService('Facial', 'Facials & Brows', '60 min', '$75'),
-  createService('Eyebrow Tint', 'Facials & Brows', '20 min', '$20'),
-  createService('Facial Waxing', 'Facials & Brows', '20 min', '$20'),
+  createService('Facial', 'Facials & Brows', '60 min', '$75', null,
+    'A 60-minute facial to cleanse, refresh and relax the skin.'),
+  createService('Eyebrow Tint', 'Facials & Brows', '20 min', '$20', null,
+    'A quick eyebrow tint that adds color and definition to your brows.'),
+  createService('Facial Waxing', 'Facials & Brows', '20 min', '$20', null,
+    'Quick facial waxing for smooth, clean results.'),
 
   createService('Color Package', 'Color Packages', 'Variable'),
   createService('Root Color Package', 'Root Color Packages', 'Variable'),
@@ -323,7 +362,7 @@ export const products = [
     category: 'Color Packages',
     description: 'A complete color refresh package for tone, vibrancy and an even, polished finish.',
     image: salonImages.rootTouchUp,
-    price: 180,
+    price: 18000, // was 180, which formatPrice shows as $1.80 (prices are in cents)
     stock: 4,
     active: true,
   },
@@ -395,6 +434,8 @@ const galleryImageUrls = Object.entries(import.meta.glob('../gallery/*.{jpg,jpeg
 export const galleryItems = galleryImageUrls.map((image, index) => ({
   id: index + 1,
   title: '',
+  // Use item.alt as the <img alt> in GalleryGrid so the photos can appear in Google Images.
+  alt: `Hair and beauty work by Delphine Beauty Studio in Bonita Springs, FL, photo ${index + 1}`,
   image,
 }));
 
@@ -422,6 +463,7 @@ export const reasons = [
   },
 ];
 
+// TODO: replace these with real client reviews (for example from your Google profile).
 export const testimonials = [
   {
     quote: 'The style was beautiful, neat and exactly what I wanted. I felt confident the whole day.',
